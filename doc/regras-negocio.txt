@@ -1,0 +1,12 @@
+REGRAS DE NEGÓCIO
+
+RN01 - O usuário não pode ser menor de 18 anos.
+RN02 - Um usuário não pode alugar a garagem para os seus próprios veículos.
+RN03 - O usuário só pode alugar e estacionar a partir do momento que seus documentos estiverem regularizados.
+RN04 - Um funcionário deve possuir apenas um e-mail.
+RN05 - Um funcionário deve possuir apenas um celular.
+RN06 - Caso o usuário queira anunciar uma vaga ele precisa de comprovante de residência.
+RN07 - Dados inválidos para registro de pessoas com nascimento abaixo de 1910 e acima da data do ano atual.
+RN08 - Não deve ser possível cadastrar o mesmo endereço duas vezes.
+RN09 - Não deve ser possível cadastrar dados bancários de outra pessoa.
+RN10 - Durante o período de vigência anúncio o usuário ficará impossibilitado de estacionar.

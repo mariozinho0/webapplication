@@ -1,0 +1,70 @@
+.logo-gp {
+    width: 45px;
+    height: 50px;
+}
+
+.img-anuncio{
+    width: 100%;
+    height: 210px;
+    justify-content: center;
+}
+
+.login-padding{
+    padding-top: 100px;
+}
+
+.bg-login {
+    width: 100%;
+    height: 620px;
+    background: url("../img/bg-login.jpg");
+    background-size: cover;
+}
+
+.bg-dashboard {
+    background-color: #00264d;
+    background-size: cover;
+}
+
+.estados,.categoria,
+.sex-user{
+    border-radius: 10rem;
+    height: 50px;
+    text-align: center;
+}
+
+.bg-modal{
+    background-color: #00264d;
+}
+
+.text-color{
+    color: #ffffff;
+}
+
+.home-padding{
+    padding-top: 5px;
+    font-size: 13px;
+}
+
+.btn-right{
+    margin-left: 5px;
+    display: flex;
+    float: right;
+}
+
+.biografia{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.avatar{
+    width: 150px;
+    height: 150px;
+}
+
+.select-special{
+    border-color: #D8DAE7 !important;
+    border-radius: 10rem !important;
+    height: 50px !important;
+    text-align: center !important;
+}

@@ -1,0 +1,4 @@
+.idea/
+gopark.iml
+target/
+src/main/webapp/node_modules
