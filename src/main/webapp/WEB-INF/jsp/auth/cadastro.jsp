@@ -37,48 +37,48 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crie sua conta!</h1>
               </div>
-              <form class="user needs-validation" novalidate>
+              <form action="${pageContext.request.contextPath}/cadastro/cadastrar" method="post" class="user needs-validation" novalidate>
                 <div class="form-group row">
                   <!-- Nome -->
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="" placeholder="Nome" required>
+                    <input type="text" class="form-control form-control-user" name="nome" placeholder="Nome" required>
                   </div>
                   <!-- Name User-->
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="" placeholder="Nome de Usuário" required>
+                    <input type="text" class="form-control form-control-user" name="usuario" placeholder="Nome de Usuário" required>
                   </div>
                 </div>
                 <div class="form-group row">
                   <!-- Celular -->
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="" placeholder="Celular" minlength="11" maxlength="11" onkeypress="$(this).mask('(00) 00000-0000')" required>
+                    <input type="text" class="form-control form-control-user" name="celular" placeholder="Celular" minlength="11" maxlength="11" onkeypress="$(this).mask('(00) 00000-0000')" required>
                   </div>
                   <!-- CPF -->
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user"  id="" placeholder="CPF" minlength="14" maxlength="14" onkeypress="$(this).mask('000.000.000-00');" required>
+                    <input type="text" class="form-control form-control-user"  name="cpf" placeholder="CPF" minlength="14" maxlength="14" onkeypress="$(this).mask('000.000.000-00');" required>
                   </div>
                 </div>
                 <div class="form-group row">
                   <!-- Data de Nascimento -->
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="" placeholder="Data de nascimento" minlength="8" maxlength="8" onkeypress="$(this).mask('00/00/0000')" required>
+                    <input type="text" class="form-control form-control-user" name="nascimento" placeholder="Data de nascimento" minlength="8" maxlength="8" onkeypress="$(this).mask('00/00/0000')" required>
                   </div>
                   <!-- SEXO M or F -->
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <select class="form-control sex-user" id="sexUser">
-                      <option value="1">Masculino</option>
-                      <option value="2">Feminino</option>
+                    <select class="form-control sex-user" name="sexo" id="sexUser">
+                      <option value="M">Masculino</option>
+                      <option value="F">Feminino</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <!-- EMAIL -->
-                  <input type="email" class="form-control form-control-user" id="" placeholder="Digite seu email..." required>
+                  <input type="email" class="form-control form-control-user" name="email" placeholder="Digite seu email..." required>
                 </div>
                 <div class="form-group row">
                   <!-- Senha -->
                   <div class="col-sm-12 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="" placeholder="Senha" required>
+                    <input type="password" class="form-control form-control-user" name="senha" placeholder="Senha" required>
                   </div>
                 </div>
                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Registrar">
