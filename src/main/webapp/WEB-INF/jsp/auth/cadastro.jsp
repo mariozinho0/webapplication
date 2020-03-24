@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,10 +86,10 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.jsp">Esqueceu a senha?</a>
+                <a class="small" href="${pageContext.request.contextPath}/recuperacao-senha">Esqueceu a senha?</a>
               </div>
               <div class="text-center">
-                <a class="small" href="login.jsp">Ja possui uma conta? Acesse!</a>
+                <a class="small" href="${pageContext.request.contextPath}/login">Ja possui uma conta? Acesse!</a>
               </div>
             </div>
           </div>

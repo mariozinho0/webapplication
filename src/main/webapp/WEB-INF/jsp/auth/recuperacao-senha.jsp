@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,16 +47,16 @@
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Digite seu email...">
                     </div>
-                    <a href="login.jsp" class="btn btn-primary btn-user btn-block">
+                    <a href="${pageContext.request.contextPath}/" class="btn btn-primary btn-user btn-block">
                       Recuperar senha
                     </a>
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="register.jsp">Criar Conta!</a>
+                    <a class="small" href="${pageContext.request.contextPath}/cadastro">Criar Conta!</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="login.jsp">Já tem uma conta? Acesse!</a>
+                    <a class="small" href="${pageContext.request.contextPath}/login">Já tem uma conta? Acesse!</a>
                   </div>
                 </div>
               </div>

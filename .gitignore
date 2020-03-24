@@ -2,3 +2,6 @@
 gopark.iml
 target/
 src/main/webapp/node_modules
+server/wildfly-16.0.0.Final/standalone/configuration/
+server/wildfly-16.0.0.Final/standalone/log/
+server/wildfly-16.0.0.Final/standalone/tmp/

@@ -22,6 +22,7 @@ public class GenericDAOImpl<T, K> implements GenericDAO<T, K> {
 
 
     /*Construtor padrão*/
+    @SuppressWarnings("unchecked")
     public GenericDAOImpl() {
 
         clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
@@ -77,7 +78,7 @@ public class GenericDAOImpl<T, K> implements GenericDAO<T, K> {
     /*Método que busca todos os registros da tabela e retorna-os em uma lista*/
     public List<T> getAll() {
 
-        return em.createQuery("FROM " + clazz.getName()).getResultList();
+        return em.createQuery("from " + clazz.getName(), clazz).getResultList();
 
     }
 

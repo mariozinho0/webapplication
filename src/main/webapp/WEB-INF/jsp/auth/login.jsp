@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -54,14 +55,14 @@
                         <label class="custom-control-label" for="customCheck">Lembre-me</label>
                       </div>
                     </div>
-                    <a href="index.jsp" class="btn btn-primary btn-user btn-block">
+                    <a href="${pageContext.request.contextPath}/" class="btn btn-primary btn-user btn-block">
                       Login
                     </a>
                     <hr>
-                    <a href="forgot-password.jsp" class="btn btn-danger btn-user btn-block">
+                    <a href="${pageContext.request.contextPath}/recuperacao-senha" class="btn btn-danger btn-user btn-block">
                        Esqueceu a senha?
                     </a>
-                    <a href="register.jsp" class="btn btn-primary btn-user btn-block">
+                    <a href="${pageContext.request.contextPath}/cadastro" class="btn btn-primary btn-user btn-block">
                       Crie sua conta
                     </a>
                   </form>
