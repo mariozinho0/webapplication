@@ -64,7 +64,7 @@
                             </div>
                             <div class="card-body">
                                 <form:form action="${s:mvcUrl('anunciar.cadastrar').build()}"
-                                      method="post" class="user">
+                                           method="post" class="user">
                                     <div class="form-group row">
                                         <!-- CEP -->
                                         <div class="col-sm-3 mb-3 mb-sm-0">
@@ -74,7 +74,8 @@
                                         </div>
                                         <!-- ENDEREÇO -->
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" name="endereco.endereco"
+                                            <input type="text" class="form-control form-control-user"
+                                                   name="endereco.endereco"
                                                    placeholder="Endereço">
                                         </div>
                                         <!-- NÚMERO -->
@@ -166,7 +167,7 @@
                                         <!--Preço-->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <input type="text" class="form-control form-control-user" name="preco"
-                                                   placeholder="Valor"
+                                                   placeholder="Preço"
                                                    onkeypress="$(this).mask('R$ #0,00',{reverse: false})">
                                         </div>
                                         <!--Modalidade-->
@@ -200,8 +201,6 @@
         <!-- Footer -->
 
         <c:import url="../component/footer.jsp"></c:import>
-
-        <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->

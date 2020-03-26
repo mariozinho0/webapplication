@@ -44,8 +44,6 @@
 
             <c:import url="component/topbar.jsp"></c:import>
 
-            <!-- End of Topbar -->
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -70,12 +68,14 @@
                                                 - ${anuncio.endereco.estado}</div>
                                             <div class="h6 mb-0 font-weight-bold text-gray-800">
                                                 Endereço: ${anuncio.endereco.endereco}</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800">Valor:
+                                            <div class="h6 mb-0 font-weight-bold text-gray-800">Preço:
                                                 R$${anuncio.preco}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <a href="${pageContext.request.contextPath}/anuncio?action=listareditar&id=${anuncio.id}" class="btn btn-sm btn-primary">Editar</a>
-                                            <a href="${pageContext.request.contextPath}/anuncio?action=excluir&id=${anuncio.id}" class="btn btn-sm btn-danger">Excluir</a>
+                                            <a href="${pageContext.request.contextPath}/anuncio?action=listareditar&id=${anuncio.id}"
+                                               class="btn btn-sm btn-primary">Editar</a>
+                                            <a href="${pageContext.request.contextPath}/anuncio?action=excluir&id=${anuncio.id}"
+                                               class="btn btn-sm btn-danger">Excluir</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,8 +94,6 @@
         <!-- Footer -->
 
         <c:import url="component/footer.jsp"></c:import>
-
-        <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
