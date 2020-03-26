@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%-- TODO CHECAR SE NÃO QUEBROU CSS --%>
 
@@ -10,18 +12,18 @@
     </button>
 
     <!-- Topbar Search -->
-    <form action="anuncio" method="get"
+    <form:form action="${s:mvcUrl('anuncio.pesquisa').build()}" method="get"
           class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <div class="input-group">
             <input type="text" name="pesquisaPorCidade" class="form-control bg-light border-0 small"
                    placeholder="Pesquisar por cidade" aria-label="Search" aria-describedby="basic-addon2">
             <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-primary" type="submit">
                     <i class="fas fa-search fa-sm"></i>
                 </button>
             </div>
         </div>
-    </form>
+    </form:form>
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -35,7 +37,8 @@
             <!-- Dropdown - Messages -->
             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                  aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
+                <!-- TODO VER PRA QUE ESSE FORM -->
+                <form:form class="form-inline mr-auto w-100 navbar-search">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small"
                                placeholder="Search for..." aria-label="Search"
@@ -46,7 +49,7 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form:form>
             </div>
         </li>
 
@@ -62,12 +65,12 @@
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                  aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="${pageContext.request.contextPath}/configuracoes">
+                <a class="dropdown-item" href="${s:mvcUrl('configuracoes').build()}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Configurações
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="${pageContext.request.contextPath}/login" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="${s:mvcUrl('login').build()}" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Sair
                 </a>

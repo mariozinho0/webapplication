@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 
 <%-- TODO CHECAR SE NÃO QUEBROU CSS --%>
 
@@ -6,7 +7,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center"
-       href="${pageContext.request.contextPath}/listar">
+       href="${s:mvcUrl('anuncio.listar').build()}">
         <div class="sidebar-brand-icon">
             <img class="logo-gp" src="img/logo.png"/>
         </div>
@@ -18,7 +19,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/listar">
+        <a class="nav-link" href="${s:mvcUrl('anuncio.listar').build()}">
             <i class="fas fa-fw fa-home"></i>
             <span>Home</span></a>
     </li>
@@ -33,7 +34,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item active">
-        <a class="nav-link" href="${pageContext.request.contextPath}/anunciar">
+        <a class="nav-link" href="${s:mvcUrl('anunciar').build()}">
             <i class="fas fa-fw fa-car"></i>
             <span>Anunciar</span>
         </a>
@@ -41,7 +42,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/alugar">
+        <a class="nav-link" href="${s:mvcUrl('alugar').build()}">
             <i class="fas fa-fw fa-car-side"></i>
             <span>Alugar</span>
         </a>
@@ -57,7 +58,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/configuracoes">
+        <a class="nav-link" href="${s:mvcUrl('configuracoes').build()}">
             <i class="fas fa-fw fa-user-alt"></i>
             <span>Configurações</span>
         </a>
@@ -65,7 +66,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/agendamentos">
+        <a class="nav-link" href="${s:mvcUrl('agendamentos').build()}">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Agendamentos</span></a>
     </li>

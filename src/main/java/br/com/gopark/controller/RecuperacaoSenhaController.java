@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RecuperacaoSenhaController {
 
-    @RequestMapping("recuperacao-senha")
+    @RequestMapping(value = "recuperacao-senha", name = "recuperacao-senha")
     public String recuperacaoSenha() {
 
         return "auth/recuperacao-senha";

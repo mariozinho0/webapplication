@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -59,7 +60,7 @@
 
 
                 <%-- TODO APRENDER COMO FAZER CHECKBOXES --%>
-                <form method="post" action="${pageContext.request.contextPath}/anuncio?postaction=editar" class="user">
+                <form:form method="post" action="${pageContext.request.contextPath}/anuncio?postaction=editar" class="user">
                 <div class="row">
                     <div class="col-lg-6 mb-4">
                         <div class="card shadow mb-4">
@@ -190,7 +191,7 @@
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                         <button class="btn btn-primary btn-right" type="submit">Enviar</button>
                                     </div>
-                                </form>
+                                </form:form>
                             </div>
                         </div>
                     </div>

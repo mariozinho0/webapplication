@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AgendamentosController {
 
-    @RequestMapping("agendamentos")
+    @RequestMapping(value = "agendamentos", name = "agendamentos")
     public String agendamentos() {
 
         return "app/agendamentos";

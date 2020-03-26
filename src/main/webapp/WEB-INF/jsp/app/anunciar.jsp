@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -48,8 +50,6 @@
 
             <c:import url="../component/topbar.jsp"></c:import>
 
-            <!-- End of Topbar -->
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -63,7 +63,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Criar Anúncio</h6>
                             </div>
                             <div class="card-body">
-                                <form action="${pageContext.request.contextPath}/anunciar/cadastrar"
+                                <form:form action="${s:mvcUrl('anunciar.cadastrar').build()}"
                                       method="post" class="user">
                                     <div class="form-group row">
                                         <!-- CEP -->
@@ -74,7 +74,7 @@
                                         </div>
                                         <!-- ENDEREÇO -->
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" name="endereco"
+                                            <input type="text" class="form-control form-control-user" name="endereco.endereco"
                                                    placeholder="Endereço">
                                         </div>
                                         <!-- NÚMERO -->
@@ -184,7 +184,7 @@
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                         <button class="btn btn-primary btn-right" type="submit">Enviar</button>
                                     </div>
-                                </form>
+                                </form:form>
                             </div>
                         </div>
                     </div>

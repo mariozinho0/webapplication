@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ConfiguracoesController {
 
     /*Mapeia a URL que deve aparecer no browser*/
-    @RequestMapping("configuracoes")
+    @RequestMapping(value = "configuracoes", name = "configuracoes")
     public String configuracoes() {
 
         return "app/configuracoes";

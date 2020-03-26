@@ -7,20 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("cadastro")
 public class CadastroController {
 
     @Autowired
     UsuarioDAO usuarioDAO;
 
-    @RequestMapping
+    @RequestMapping(value = "cadastro", name = "cadastro")
     public String cadastro() {
 
         return "auth/cadastro";
 
     }
 
-    @RequestMapping(value = "/cadastrar")
+    @RequestMapping(value = "cadastrar", name = "cadastro.cadastrar")
     public ModelAndView cadastrar() {
 
         return new ModelAndView("redirect:login");

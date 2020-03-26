@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +39,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crie sua conta!</h1>
               </div>
-              <form action="${pageContext.request.contextPath}/cadastro/cadastrar" method="post" class="user needs-validation" novalidate>
+              <form:form action="${s:mvcUrl('cadastro.cadastrar').build()}" method="post" class="user needs-validation">
                 <div class="form-group row">
                   <!-- Nome -->
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -83,13 +85,13 @@
                 </div>
                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Registrar">
                 </input>
-              </form>
+              </form:form>
               <hr>
               <div class="text-center">
-                <a class="small" href="${pageContext.request.contextPath}/recuperacao-senha">Esqueceu a senha?</a>
+                <a class="small" href="${s:mvcUrl('recuperacao-senha').build()}">Esqueceu a senha?</a>
               </div>
               <div class="text-center">
-                <a class="small" href="${pageContext.request.contextPath}/login">Ja possui uma conta? Acesse!</a>
+                <a class="small" href="${s:mvcUrl('cadastro').build()}">Ja possui uma conta? Acesse!</a>
               </div>
             </div>
           </div>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,7 +44,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
                   </div>
-                  <form class="user">
+                  <form:form class="user">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Digite seu email...">
                     </div>
@@ -55,17 +57,17 @@
                         <label class="custom-control-label" for="customCheck">Lembre-me</label>
                       </div>
                     </div>
-                    <a href="${pageContext.request.contextPath}/" class="btn btn-primary btn-user btn-block">
+                    <a href="${s:mvcUrl('home').build()}/" class="btn btn-primary btn-user btn-block">
                       Login
                     </a>
                     <hr>
-                    <a href="${pageContext.request.contextPath}/recuperacao-senha" class="btn btn-danger btn-user btn-block">
+                    <a href="${s:mvcUrl('recuperacao-senha').build()}" class="btn btn-danger btn-user btn-block">
                        Esqueceu a senha?
                     </a>
-                    <a href="${pageContext.request.contextPath}/cadastro" class="btn btn-primary btn-user btn-block">
+                    <a href="${s:mvcUrl('cadastro').build()}" class="btn btn-primary btn-user btn-block">
                       Crie sua conta
                     </a>
-                  </form>
+                  </form:form>
                 </div>
               </div>
             </div>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,20 +45,20 @@
                     <h1 class="h4 text-gray-900 mb-2">Esqueceu sua senha?</h1>
                     <p class="mb-4">Entendemos, as coisas acontecem. Basta digitar seu endereço de e-mail abaixo e enviaremos um link para redefinir sua senha!</p>
                   </div>
-                  <form class="user">
+                  <form:form class="user">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Digite seu email...">
                     </div>
-                    <a href="${pageContext.request.contextPath}/" class="btn btn-primary btn-user btn-block">
+                    <a href="${s:mvcUrl('home').build()}" class="btn btn-primary btn-user btn-block">
                       Recuperar senha
                     </a>
-                  </form>
+                  </form:form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="${pageContext.request.contextPath}/cadastro">Criar Conta!</a>
+                    <a class="small" href="${s:mvcUrl('cadastro').build()}">Criar Conta!</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="${pageContext.request.contextPath}/login">Já tem uma conta? Acesse!</a>
+                    <a class="small" href="${s:mvcUrl('login').build()}">Já tem uma conta? Acesse!</a>
                   </div>
                 </div>
               </div>

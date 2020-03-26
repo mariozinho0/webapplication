@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AlugarController {
 
     /*Mapeia a URL que deve aparecer no browser*/
-    @RequestMapping("alugar")
+    @RequestMapping(value = "alugar", name = "alugar")
     public String alugar() {
 
         return "app/alugar";

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -123,7 +124,7 @@
                                       <h6 class="m-0 font-weight-bold text-primary">Editar Informações</h6>
                                     </div>
                                     <div class="card-body">
-                                      <form class="user">
+                                      <form:form class="user">
                                         <div class="form-group row">
                                           <!-- Nome -->
                                           <div class="col-sm-6 mb-3 mb-sm-0">
@@ -171,7 +172,7 @@
                                         </div>
                                         <hr class="sidebar-divider">
                                          <button class="btn btn-primary btn-right" type="button">Salvar</button>
-                                      </form>
+                                      </form:form>
                                     </div>
                                   </div>
                                 </div>
