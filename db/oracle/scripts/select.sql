@@ -1,0 +1,29 @@
+/* =======  SCRIPTS DE PESQUISA  ======= */
+
+-- SELECT ALL USUARIO
+SELECT *
+FROM usuario;
+
+-- SELECT ALL ENDERECO
+SELECT *
+FROM endereco;
+
+-- SELECT ALL BANCO
+SELECT *
+FROM banco;
+
+-- SELECT ALL CARTAO
+SELECT *
+FROM cartao;
+
+-- SELECT ALL VEICULO
+SELECT *
+FROM veiculo;
+
+-- SELECT ALL ANUNCIO
+SELECT *
+FROM anuncio;
+
+-- SELECT ALL SERVICO
+SELECT *
+FROM servico;

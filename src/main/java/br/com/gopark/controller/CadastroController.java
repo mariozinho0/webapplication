@@ -23,7 +23,7 @@ public class CadastroController {
     @RequestMapping(value = "/cadastrar")
     public ModelAndView cadastrar() {
 
-        return new ModelAndView();
+        return new ModelAndView("redirect:login");
 
     }
 

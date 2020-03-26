@@ -4,15 +4,12 @@ import br.com.gopark.enums.Categoria;
 import br.com.gopark.enums.TipoVeiculo;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
 @Table(name = "veiculo")
-/*Anotação que adiciona a constraint CHECK*/
-//@Check(constraints = "tipo IN ('CARRO', 'MOTO')")
 public class Veiculo {
 
     //Atributos

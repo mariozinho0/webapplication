@@ -1,9 +1,9 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Sexo;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
@@ -11,8 +11,6 @@ import java.util.List;
 @Entity
 /*Anotação responsável pelas características da tabela*/
 @Table(name = "usuario")
-/*Anotação que adiciona a constraint CHECK*/
-//@Check(constraints = "sexo IN ('M', 'F')")
 public class Usuario {
 
     //Atributos

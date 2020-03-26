@@ -32,7 +32,7 @@
 
     <!-- Sidebar -->
 
-    <c:import url="app/component/sidebar.jsp"></c:import>
+    <c:import url="component/sidebar.jsp"></c:import>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -42,7 +42,7 @@
 
             <!-- Topbar -->
 
-            <c:import url="app/component/topbar.jsp"></c:import>
+            <c:import url="component/topbar.jsp"></c:import>
 
             <!-- End of Topbar -->
 
@@ -93,7 +93,7 @@
 
         <!-- Footer -->
 
-        <c:import url="app/component/footer.jsp"></c:import>
+        <c:import url="component/footer.jsp"></c:import>
 
         <!-- End of Footer -->
 
@@ -109,7 +109,7 @@
 </a>
 
 <!-- Logout Modal-->
-<c:import url="app/component/logout-modal.jsp"></c:import>
+<c:import url="component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

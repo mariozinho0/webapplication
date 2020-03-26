@@ -36,7 +36,7 @@
 
     <!-- Sidebar -->
 
-    <c:import url="component/sidebar.jsp"></c:import>
+    <c:import url="../component/sidebar.jsp"></c:import>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -46,7 +46,7 @@
 
             <!-- Topbar -->
 
-            <c:import url="component/topbar.jsp"></c:import>
+            <c:import url="../component/topbar.jsp"></c:import>
 
             <!-- End of Topbar -->
 
@@ -63,7 +63,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Criar Anúncio</h6>
                             </div>
                             <div class="card-body">
-                                <form action="${pageContext.request.contextPath}/anuncio?postaction=cadastrar"
+                                <form action="${pageContext.request.contextPath}/anunciar/cadastrar"
                                       method="post" class="user">
                                     <div class="form-group row">
                                         <!-- CEP -->
@@ -163,7 +163,7 @@
                                                 <option value="TOTAL">Total</option>
                                             </select>
                                         </div>
-                                        <!--VALOR-->
+                                        <!--Preço-->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <input type="text" class="form-control form-control-user" name="preco"
                                                    placeholder="Valor"
@@ -199,7 +199,7 @@
 
         <!-- Footer -->
 
-        <c:import url="component/footer.jsp"></c:import>
+        <c:import url="../component/footer.jsp"></c:import>
 
         <!-- End of Footer -->
 
@@ -216,7 +216,7 @@
 
 <!-- Logout Modal-->
 
-<c:import url="component/logout-modal.jsp"></c:import>
+<c:import url="../component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

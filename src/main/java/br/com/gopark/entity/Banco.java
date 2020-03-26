@@ -1,17 +1,13 @@
 package br.com.gopark.entity;
 
-
 import br.com.gopark.enums.TipoConta;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
 @Table(name = "banco")
-/*Anotação que adiciona a constraint CHECK*/
-//@Check(constraints = "tipo IN ('CC', 'CP')")
 public class Banco {
 
     //Atributos

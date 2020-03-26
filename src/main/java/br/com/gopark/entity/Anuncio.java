@@ -15,8 +15,6 @@ import java.util.Calendar;
 @Entity
 /*Anotação responsável pelas características da tabela*/
 @Table(name = "anuncio")
-/*Anotação que adiciona a constraint CHECK*/
-//@Check(constraints = "categoria IN ('HATCH', 'SEDAN', 'PERUA', 'SUV', 'PICAPE')")
 public class Anuncio {
 
     //Atributos

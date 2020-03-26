@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("anunciar")
@@ -17,18 +18,18 @@ public class AnuncioController {
 
     /*Mapeia a URL que deve aparecer no browser*/
     @RequestMapping
-    public String anuncio() {
+    public ModelAndView anuncio() {
 
-        return "app/anunciar";
+        return new ModelAndView("app/anunciar");
 
     }
 
     @RequestMapping("/cadastrar")
     @Transactional
-    public String cadastrar(Anuncio anuncio) {
+    public ModelAndView cadastrar(Anuncio anuncio) {
 
         anuncioDAO.insert(anuncio);
-        return "/";
+        return new ModelAndView("redirect:lista");
 
     }
 

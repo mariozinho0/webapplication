@@ -1,7 +1,6 @@
 package br.com.gopark.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
