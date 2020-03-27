@@ -6,19 +6,15 @@ public class FormatUtil {
 
     public static Integer formatarCep(String cep) {
 
-        String cepFormatado = cep.replace("-", "");
-
-        return Integer.parseInt(cepFormatado);
+        return Integer.parseInt(cep.replace("-", "")
+                .replace(".", ""));
 
     }
 
-    //TODO REFATORAR???
     public static BigDecimal formatarPreco(String preco) {
 
-        preco = preco.replace("R$ ", "");
-        preco = preco.replace(",", ".");
-
-        return new BigDecimal(preco);
+        return new BigDecimal(preco.replace("R$ ", "")
+                .replace(",", "."));
 
     }
 

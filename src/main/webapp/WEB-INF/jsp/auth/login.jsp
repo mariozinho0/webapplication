@@ -45,15 +45,16 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
                                 </div>
-                                <form:form class="user">
+                                <form:form modelAttribute="usuario" action="${s:mvcUrl('home').build()}" method="post"
+                                           class="user">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Digite seu email...">
+                                        <form:input type="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="Digite seu email..." path="email"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Senha">
+                                        <form:input type="password" class="form-control form-control-user"
+                                                    id="exampleInputPassword" placeholder="Senha" path="senha"/>
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">

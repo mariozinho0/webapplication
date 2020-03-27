@@ -1,7 +1,7 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Sexo;
-import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -27,6 +27,7 @@ public class Usuario {
 
     /*Anotação que define as características da coluna*/
     @Column(name = "nome", nullable = false, length = 45)
+    /*@NotBlank*/
     private String nome;
 
     /*Anotação que define as características da coluna*/
@@ -35,6 +36,7 @@ public class Usuario {
 
     /*Anotação que define as características da coluna*/
     @Column(name = "email", nullable = false, length = 50, unique = true)
+    /*@Email*/
     private String email;
 
     /*Anotação que define as características da coluna*/
@@ -43,6 +45,7 @@ public class Usuario {
 
     /*Anotação que define as características da coluna*/
     @Column(name = "cpf", nullable = false, length = 11, unique = true)
+    /*@CPF*/
     private String cpf;
 
     /*Anotação que define as características da coluna*/
@@ -63,6 +66,8 @@ public class Usuario {
     @Temporal(TemporalType.DATE)
     /*Anotação que define as características da coluna*/
     @Column(name = "nascimento", nullable = false)
+    /*Anotação para formatação de data*/
+    @DateTimeFormat(pattern = "ddMMyyyy") //TODO TIRAR (pattern = "")
     private Calendar nascimento;
 
     /*Anotação que define as características da coluna*/

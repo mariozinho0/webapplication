@@ -47,13 +47,14 @@
                                     <p class="mb-4">Entendemos, as coisas acontecem. Basta digitar seu endereço de
                                         e-mail abaixo e enviaremos um link para redefinir sua senha!</p>
                                 </div>
-                                <form:form class="user">
+                                <form:form modelAttribute="usuario" action="${s:mvcUrl('login')}" method="POST"
+                                           class="user">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Digite seu email...">
+                                        <form:input type="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="Digite seu email..." path="email"/>
                                     </div>
-                                    <a href="${s:mvcUrl('home').build()}" class="btn btn-primary btn-user btn-block">
+                                    <a href="${s:mvcUrl('login').build()}" class="btn btn-primary btn-user btn-block">
                                         Recuperar senha
                                     </a>
                                 </form:form>

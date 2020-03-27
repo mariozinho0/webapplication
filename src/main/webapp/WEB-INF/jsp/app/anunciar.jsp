@@ -63,122 +63,132 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Criar Anúncio</h6>
                             </div>
                             <div class="card-body">
-                                <form:form action="${s:mvcUrl('anunciar.cadastrar').build()}"
-                                           method="post" class="user">
+                                <form:form modelAttribute="anuncio" action="${s:mvcUrl('anunciar.cadastrar').build()}"
+                                           method="POST" class="user">
                                     <div class="form-group row">
                                         <!-- CEP -->
                                         <div class="col-sm-3 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" name="cep"
-                                                   minlength="8" maxlength="8" placeholder="CEP"
-                                                   onkeypress="$(this).mask('00000-000')">
+                                            <form:input class="form-control form-control-user" name="cep"
+                                                        minlength="8" maxlength="8" placeholder="CEP"
+                                                        onkeypress="$(this).mask('00000-000')" path="endereco.cep"/>
                                         </div>
                                         <!-- ENDEREÇO -->
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user"
-                                                   name="endereco.endereco"
-                                                   placeholder="Endereço">
+                                            <form:input class="form-control form-control-user"
+                                                        name="endereco"
+                                                        placeholder="Endereço" path="endereco.endereco"/>
                                         </div>
                                         <!-- NÚMERO -->
                                         <div class="col-sm-3 mb-3 mb-sm-0">
-                                            <input type="number" class="form-control form-control-user" name="numero"
-                                                   placeholder="Número">
+                                            <form:input type="number" class="form-control form-control-user"
+                                                        name="numero"
+                                                        placeholder="Número" path="endereco.numero"/>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <!-- BAIRRO -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" name="bairro"
-                                                   placeholder="Bairro">
+                                            <form:input class="form-control form-control-user" name="bairro"
+                                                        placeholder="Bairro" path="endereco.bairro"/>
                                         </div>
                                         <!-- CIDADE -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user"
-                                                   name="cidade" placeholder="Cidade">
+                                            <form:input class="form-control form-control-user"
+                                                        name="cidade" placeholder="Cidade" path="endereco.cidade"/>
                                         </div>
                                         <!-- ESTADO -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <select class="form-control estados" id="Estados" name="estado">
-                                                <option selected>Selecione o Estado</option>
-                                                <option value="AC">Acre</option>
-                                                <option value="AL">Alagoas</option>
-                                                <option value="AP">Amapá</option>
-                                                <option value="AM">Amazonas</option>
-                                                <option value="BA">Bahia</option>
-                                                <option value="CE">Ceará</option>
-                                                <option value="DF">Distrito Federal</option>
-                                                <option value="ES">Espírito Santo</option>
-                                                <option value="GO">Goiás</option>
-                                                <option value="MA">Maranhão</option>
-                                                <option value="MT">Mato Grosso</option>
-                                                <option value="MS">Mato Grosso do Sul</option>
-                                                <option value="MG">Minas Gerais</option>
-                                                <option value="PA">Pará</option>
-                                                <option value="PB">Paraíba</option>
-                                                <option value="PR">Paraná</option>
-                                                <option value="PE">Pernambuco</option>
-                                                <option value="PI">Piauí</option>
-                                                <option value="RJ">Rio de Janeiro</option>
-                                                <option value="RN">Rio Grande do Norte</option>
-                                                <option value="RS">Rio Grande do Sul</option>
-                                                <option value="RO">Rondônia</option>
-                                                <option value="RR">Roraima</option>
-                                                <option value="SC">Santa Catarina</option>
-                                                <option value="SP">São Paulo</option>
-                                                <option value="SE">Sergipe</option>
-                                                <option value="TO">Tocantins</option>
-                                            </select>
+                                            <form:select class="form-control estados" id="Estados" name="estado"
+                                                         path="endereco.estado">
+                                                <!-- TODO VALIDAÇÃO DO ESTADO EM BRANCO -->
+                                                <form:option selected="selected"
+                                                             value="">Selecione o Estado</form:option>
+                                                <form:option value="AC">Acre</form:option>
+                                                <form:option value="AL">Alagoas</form:option>
+                                                <form:option value="AP">Amapá</form:option>
+                                                <form:option value="AM">Amazonas</form:option>
+                                                <form:option value="BA">Bahia</form:option>
+                                                <form:option value="CE">Ceará</form:option>
+                                                <form:option value="DF">Distrito Federal</form:option>
+                                                <form:option value="ES">Espírito Santo</form:option>
+                                                <form:option value="GO">Goiás</form:option>
+                                                <form:option value="MA">Maranhão</form:option>
+                                                <form:option value="MT">Mato Grosso</form:option>
+                                                <form:option value="MS">Mato Grosso do Sul</form:option>
+                                                <form:option value="MG">Minas Gerais</form:option>
+                                                <form:option value="PA">Pará</form:option>
+                                                <form:option value="PB">Paraíba</form:option>
+                                                <form:option value="PR">Paraná</form:option>
+                                                <form:option value="PE">Pernambuco</form:option>
+                                                <form:option value="PI">Piauí</form:option>
+                                                <form:option value="RJ">Rio de Janeiro</form:option>
+                                                <form:option value="RN">Rio Grande do Norte</form:option>
+                                                <form:option value="RS">Rio Grande do Sul</form:option>
+                                                <form:option value="RO">Rondônia</form:option>
+                                                <form:option value="RR">Roraima</form:option>
+                                                <form:option value="SC">Santa Catarina</form:option>
+                                                <form:option value="SP">São Paulo</form:option>
+                                                <form:option value="SE">Sergipe</form:option>
+                                                <form:option value="TO">Tocantins</form:option>
+                                            </form:select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <!--VAGA-->
+                                        <!-- VAGAS -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="number" class="form-control form-control-user" name="vagas"
-                                                   placeholder="Número de Vagas">
+                                            <form:input type="number" class="form-control form-control-user"
+                                                        name="vagas"
+                                                        placeholder="Número de Vagas" path="vagas"/>
                                         </div>
-                                        <!--CATEGORIA-->
+                                        <!-- CATEGORIA -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <select class="form-control estados" name="categoria">
-                                                <option selected>Veículo Compativel:</option>
-                                                <option value="HATCH">Hatch</option>
-                                                <option value="SEDAN">Sedan</option>
-                                                <option value="SUV">SUV</option>
-                                                <option value="PERUA">Perua</option>
-                                                <option value="PICAPE">Picape</option>
-                                            </select>
+                                            <form:select class="form-control estados" name="categoria" path="categoria">
+                                                <form:option selected="selected"
+                                                             value="">Veículo Compativel:</form:option>
+                                                <form:option value="HATCH">Hatch</form:option>
+                                                <form:option value="SEDAN">Sedan</form:option>
+                                                <form:option value="SUV">SUV</form:option>
+                                                <form:option value="PERUA">Perua</form:option>
+                                                <form:option value="PICAPE">Picape</form:option>
+                                            </form:select>
                                         </div>
-                                        <!--DIMENSÔES-->
+                                        <!-- DIMENSÔES -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" name="dimensoes"
-                                                   placeholder="Dimensões em metros" onkeypress="$(this).mask('00x00')">
+                                            <form:input class="form-control form-control-user" name="dimensoes"
+                                                        placeholder="Dimensões em metros"
+                                                        onkeypress="$(this).mask('00x00')" path="dimensoes"/>
                                         </div>
                                     </div>
-                                    <!--Disponibilidade-->
+                                    <!-- DISPONIBILIDADE -->
                                     <div class="form-group row">
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <select class="form-control estados" name="disponibilidade">
-                                                <option selected>Disponibilidade:</option>
-                                                <option value="MANHA">Manhã</option>
-                                                <option value="TARDE">Tarde</option>
-                                                <option value="NOITE">Noite</option>
-                                                <option value="MADRUGADA">Madrugada</option>
-                                                <option value="TOTAL">Total</option>
-                                            </select>
+                                            <form:select class="form-control estados" name="disponibilidade"
+                                                         path="disponibilidade">
+                                                <form:option selected="selected" value="">Disponibilidade:</form:option>
+                                                <form:option value="MANHA">Manhã</form:option>
+                                                <form:option value="TARDE">Tarde</form:option>
+                                                <form:option value="NOITE">Noite</form:option>
+                                                <form:option value="MADRUGADA">Madrugada</form:option>
+                                                <form:option value="TOTAL">Total</form:option>
+                                            </form:select>
                                         </div>
-                                        <!--Preço-->
+                                        <!-- PREÇO -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" name="preco"
-                                                   placeholder="Preço"
-                                                   onkeypress="$(this).mask('R$ #0,00',{reverse: false})">
+                                            <form:input class="form-control form-control-user" name="preco"
+                                                        placeholder="Preço"
+                                                        onkeypress="$(this).mask('R$ #0,00',{reverse: false})"
+                                                        path="preco"/>
                                         </div>
-                                        <!--Modalidade-->
+                                        <!-- MODALIDADE -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
-                                            <select class="form-control estados" title="Anunciar por:"
-                                                    data-style="select-special" name="modalidade">
-                                                <option selected>Anunciar por:</option>
-                                                <option value="HORA">Hora</option>
-                                                <option value="DIA">Dia</option>
-                                                <option value="MES">Mês</option>
-                                            </select>
+                                            <form:select class="form-control estados" title="Anunciar por:"
+                                                         data-style="select-special" name="modalidade"
+                                                         path="modalidade">
+                                                <form:option selected="selected" value="">Anunciar por:</form:option>
+                                                <form:option value="HORA">Hora</form:option>
+                                                <form:option value="DIA">Dia</form:option>
+                                                <form:option value="MES">Mês</form:option>
+                                            </form:select>
                                         </div>
                                     </div>
                                     <!--ENVIAR ANUNCIO-->

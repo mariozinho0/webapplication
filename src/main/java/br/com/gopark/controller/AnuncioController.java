@@ -5,6 +5,7 @@ import br.com.gopark.entity.Anuncio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,8 +18,8 @@ public class AnuncioController {
     private AnuncioDAO anuncioDAO;
 
     /*Mapeia a URL que deve aparecer no browser*/
-    @RequestMapping(value = "anunciar", name = "anunciar")
-    public ModelAndView anuncio() {
+    @RequestMapping(value = "anuncio", name = "anunciar")
+    public ModelAndView anuncio(@ModelAttribute("anuncio") Anuncio anuncio) {
 
         return new ModelAndView("app/anunciar");
 

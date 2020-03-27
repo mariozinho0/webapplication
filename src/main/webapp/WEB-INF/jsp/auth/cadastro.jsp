@@ -40,59 +40,60 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Crie sua conta!</h1>
                         </div>
-                        <form:form action="${s:mvcUrl('cadastro.cadastrar').build()}" method="post"
+                        <form:form modelAttribute="usuario" action="${s:mvcUrl('cadastro.cadastrar').build()}"
+                                   method="POST"
                                    class="user needs-validation">
                             <div class="form-group row">
                                 <!-- Nome -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" name="nome"
-                                           placeholder="Nome" required>
+                                    <form:input class="form-control form-control-user" name="nome"
+                                                placeholder="Nome" path="nome"/>
                                 </div>
                                 <!-- Name User-->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" name="usuario"
-                                           placeholder="Nome de Usuário" required>
+                                    <form:input class="form-control form-control-user" name="usuario"
+                                                placeholder="Nome de Usuário" path="usuario"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <!-- Celular -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" name="celular"
-                                           placeholder="Celular" minlength="11" maxlength="11"
-                                           onkeypress="$(this).mask('(00) 00000-0000')" required>
+                                    <form:input class="form-control form-control-user" name="celular"
+                                                placeholder="Celular" minlength="11" maxlength="11"
+                                                onkeypress="$(this).mask('(00) 00000-0000')" path="celular"/>
                                 </div>
                                 <!-- CPF -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" name="cpf"
-                                           placeholder="CPF" minlength="14" maxlength="14"
-                                           onkeypress="$(this).mask('000.000.000-00');" required>
+                                    <form:input class="form-control form-control-user" name="cpf"
+                                                placeholder="CPF" minlength="11" maxlength="11"
+                                                onkeypress="$(this).mask('000.000.000-00');" path="cpf"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <!-- Data de Nascimento -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" name="nascimento"
-                                           placeholder="Data de nascimento" minlength="8" maxlength="8"
-                                           onkeypress="$(this).mask('00/00/0000')" required>
+                                    <form:input class="form-control form-control-user" name="nascimento"
+                                                placeholder="Data de nascimento" minlength="8" maxlength="8"
+                                                onkeypress="$(this).mask('00/00/0000')" path="nascimento"/>
                                 </div>
                                 <!-- SEXO M or F -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select class="form-control sex-user" name="sexo" id="sexUser">
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Feminino</option>
-                                    </select>
+                                    <form:select class="form-control sex-user" name="sexo" id="sexUser" path="sexo">
+                                        <form:option value="M">Masculino</form:option>
+                                        <form:option value="F">Feminino</form:option>
+                                    </form:select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!-- EMAIL -->
-                                <input type="email" class="form-control form-control-user" name="email"
-                                       placeholder="Digite seu email..." required>
+                                <form:input type="email" class="form-control form-control-user" name="email"
+                                            placeholder="Digite seu email..." path="email"/>
                             </div>
                             <div class="form-group row">
                                 <!-- Senha -->
                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user" name="senha"
-                                           placeholder="Senha" required>
+                                    <form:input type="password" class="form-control form-control-user" name="senha"
+                                                placeholder="Senha" path="senha"/>
                                 </div>
                             </div>
                             <input type="submit" class="btn btn-primary btn-user btn-block" value="Registrar">
@@ -103,7 +104,7 @@
                             <a class="small" href="${s:mvcUrl('recuperacao-senha').build()}">Esqueceu a senha?</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" href="${s:mvcUrl('cadastro').build()}">Ja possui uma conta? Acesse!</a>
+                            <a class="small" href="${s:mvcUrl('login').build()}">Ja possui uma conta? Acesse!</a>
                         </div>
                     </div>
                 </div>
