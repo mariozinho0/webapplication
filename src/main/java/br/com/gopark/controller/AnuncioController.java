@@ -1,7 +1,10 @@
 package br.com.gopark.controller;
 
 import br.com.gopark.dao.AnuncioDAO;
+import br.com.gopark.dao.EnderecoDAO;
+import br.com.gopark.dao.UsuarioDAO;
 import br.com.gopark.entity.Anuncio;
+import br.com.gopark.entity.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +20,12 @@ public class AnuncioController {
     @Autowired
     private AnuncioDAO anuncioDAO;
 
+    @Autowired
+    private EnderecoDAO enderecoDAO;
+
+    @Autowired
+    private UsuarioDAO usuarioDAO;
+
     /*Mapeia a URL que deve aparecer no browser*/
     @RequestMapping(value = "anuncio", name = "anunciar")
     public ModelAndView anuncio(@ModelAttribute("anuncio") Anuncio anuncio) {
@@ -25,7 +34,7 @@ public class AnuncioController {
 
     }
 
-    @RequestMapping(value = "listar", method = RequestMethod.GET, name = "anuncio.listar")
+    @RequestMapping(value = "/", method = RequestMethod.GET, name = "anuncio.listar")
     public ModelAndView listar() {
 
         return new ModelAndView("index").addObject("anuncios", anuncioDAO.getAll());
@@ -36,8 +45,14 @@ public class AnuncioController {
     @RequestMapping(value = "anunciar", method = RequestMethod.POST, name = "anunciar.cadastrar")
     public ModelAndView cadastrar(Anuncio anuncio) {
 
+        Endereco endereco = anuncio.getEndereco();
+        endereco.setUsuario(usuarioDAO.select(1));
+        enderecoDAO.insert(endereco);
+
+        anuncio.setUsuario(usuarioDAO.select(1));
         anuncioDAO.insert(anuncio);
-        return new ModelAndView("redirect:index");
+
+        return new ModelAndView("redirect:/");
 
     }
 
