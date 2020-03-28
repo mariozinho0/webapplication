@@ -62,7 +62,7 @@
                                             <label class="custom-control-label" for="customCheck">Lembre-me</label>
                                         </div>
                                     </div>
-                                    <a href="${s:mvcUrl('home').build()}/" class="btn btn-primary btn-user btn-block">
+                                    <a href="${s:mvcUrl('home').build()}" class="btn btn-primary btn-user btn-block">
                                         Login
                                     </a>
                                     <hr>

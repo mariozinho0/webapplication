@@ -110,7 +110,7 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-CSS e JavaScript <!-- Logout Modal-->
+<!-- Logout Modal -->
 <c:import url="component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->
