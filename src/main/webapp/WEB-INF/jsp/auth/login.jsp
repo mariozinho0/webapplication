@@ -45,6 +45,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
                                 </div>
+                                <%--@elvariable id="usuario" type="spring"--%>
                                 <form:form modelAttribute="usuario" action="${s:mvcUrl('home').build()}" method="post"
                                            class="user">
                                     <div class="form-group">

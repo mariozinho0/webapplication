@@ -47,6 +47,7 @@
                                     <p class="mb-4">Entendemos, as coisas acontecem. Basta digitar seu endereço de
                                         e-mail abaixo e enviaremos um link para redefinir sua senha!</p>
                                 </div>
+                                <%--@elvariable id="usuario" type="spring"--%>
                                 <form:form modelAttribute="usuario" action="${s:mvcUrl('login')}" method="POST"
                                            class="user">
                                     <div class="form-group">

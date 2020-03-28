@@ -40,6 +40,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Crie sua conta!</h1>
                         </div>
+                        <%--@elvariable id="usuario" type="spring"--%>
                         <form:form modelAttribute="usuario" action="${s:mvcUrl('cadastro.cadastrar').build()}"
                                    method="POST"
                                    class="user needs-validation" id="cadastrar">

@@ -22,7 +22,7 @@ public class AnuncioDAOImpl extends GenericDAOImpl<Anuncio, Integer> implements 
     public List<Anuncio> getByCidade(String cidade) {
 
         return em.createQuery
-                ("select a from Anuncio a where a.endereco.cidade = :c")
+                ("select a from Anuncio a where lower(a.endereco.cidade) like lower(concat('%', :c, '%'))")
                 .setParameter("c", cidade).getResultList();
 
     }

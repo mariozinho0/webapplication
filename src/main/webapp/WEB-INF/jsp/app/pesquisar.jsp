@@ -36,7 +36,7 @@
 
     <!-- Sidebar -->
 
-    <c:import url="component/sidebar.jsp"></c:import>
+    <c:import url="../component/sidebar.jsp"></c:import>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -46,7 +46,7 @@
 
             <!-- Topbar -->
 
-            <c:import url="component/topbar.jsp"></c:import>
+            <c:import url="../component/topbar.jsp"></c:import>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -54,11 +54,12 @@
                 <!-- Page Heading -->
                 <h1 class="h3 mb-4 text-gray-800">Anúncios</h1>
 
-                <!-- Ultimos Anúncios -->
+                <!-- Pesquisa por Cidade -->
 
                 <div class="row">
 
-                    <c:forEach items="${anuncios}" var="anuncio">
+                    <%-- Colocar um if action = pesquisa do --%>
+                    <c:forEach items="${pesquisa}" var="pesquisa">
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
@@ -67,17 +68,18 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
                                                 <i class="fas fa-map-marker-alt"
-                                                   style="color: red;"></i> ${anuncio.endereco.cidade}
-                                                - ${anuncio.endereco.estado}</div>
+                                                   style="color: red;"></i> ${pesquisa.endereco.cidade}
+                                                - ${pesquisa.endereco.estado}</div>
                                             <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                                Endereço: ${anuncio.endereco.endereco}</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800" id="preco">Preço: <fmt:formatNumber value="${anuncio.preco}" type="currency"/></div>
+                                                Endereço: ${pesquisa.endereco.endereco}</div>
+                                            <div class="h6 mb-0 font-weight-bold text-gray-800" id="preco">Preço:
+                                                <fmt:formatNumber value="${pesquisa.preco}" type="currency"/></div>
                                         </div>
                                         <div class="col-auto">
-                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, anuncio.id).build()}"
+                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, pesquisa.id).build()}"
                                                class="btn btn-sm btn-primary">Editar</a>
-                                            <input hidden value="${anuncio.id}">
-                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, anuncio.id).build()}"
+                                            <input hidden value="${pesquisa.id}">
+                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, pesquisa.id).build()}"
                                                class="btn btn-sm btn-danger">Excluir</a>
                                         </div>
                                     </div>
@@ -96,7 +98,7 @@
 
         <!-- Footer -->
 
-        <c:import url="component/footer.jsp"></c:import>
+        <c:import url="../component/footer.jsp"></c:import>
 
     </div>
     <!-- End of Content Wrapper -->
@@ -110,7 +112,7 @@
 </a>
 
 <!-- Logout Modal -->
-<c:import url="component/logout-modal.jsp"></c:import>
+<c:import url="../component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

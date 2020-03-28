@@ -63,6 +63,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Criar Anúncio</h6>
                             </div>
                             <div class="card-body">
+                                <%--@elvariable id="anuncio" type="spring"--%>
                                 <form:form modelAttribute="anuncio" action="${s:mvcUrl('anunciar.cadastrar').build()}"
                                            method="POST" class="user" id="anunciar">
                                     <div class="form-group row">

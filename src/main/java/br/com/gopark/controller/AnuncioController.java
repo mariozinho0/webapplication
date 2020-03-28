@@ -93,8 +93,8 @@ public class AnuncioController {
     @RequestMapping(value = "pesquisa", method = RequestMethod.GET, name = "anuncio.pesquisa")
     public ModelAndView pesquisaPorCidade(String cidade) {
 
-        //TODO CRIAR PAGINA DE PESQUISA OU FAZER UM IF OU THYMELEAF
-        return new ModelAndView("index").addObject("pesquisa", anuncioDAO.getByCidade(cidade));
+        //TODO CRIAR PAGINA DE PESQUISA OU FAZER UM IF
+        return new ModelAndView("app/pesquisar").addObject("pesquisa", anuncioDAO.getByCidade(cidade));
 
     }
 

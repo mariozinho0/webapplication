@@ -38,5 +38,5 @@ INSERT INTO anuncio
 VALUES (anuncio_seq.nextval, 1, 2, 25.00, 2, 'Casa', 'SEDAN', 'DIA', '23/02/2022', 'TOTAL', '30x15', 'localhost:8080/gopark/foto2.jpg', SYSDATE);
 
 -- INSERT INTO SERVICO
-INSERT INTO servico (id, id_veiculo, id_anuncio, avaliacao, preco, entrada, saida, pagamento)
-VALUES (servico_seq.nextval, 1, 1, 5, 10.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'CARTAO');
+-- INSERT INTO servico (id, id_veiculo, id_anuncio, avaliacao, preco, entrada, saida, pagamento)
+-- VALUES (servico_seq.nextval, 1, 1, 5, 10.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'CARTAO');
