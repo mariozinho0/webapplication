@@ -22,7 +22,7 @@ public class Usuario {
     /*Anotação que gera uma SEQUENCE através de um padrão @SequenceGenerator*/
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario")
     /*Anotação que define as características da coluna*/
-    @Column(name = "id", nullable = false, length = 8)
+    @Column(name = "id", nullable = false, length = 8, updatable = false)
     private Integer id;
 
     /*Anotação que define as características da coluna*/

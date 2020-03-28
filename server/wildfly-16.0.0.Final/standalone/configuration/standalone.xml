@@ -526,4 +526,9 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
+    <deployments>
+        <deployment name="gopark" runtime-name="gopark.war">
+            <fs-exploded path="/home/pablo/Projects/gopark/target/gopark"/>
+        </deployment>
+    </deployments>
 </server>

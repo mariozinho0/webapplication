@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -72,9 +74,10 @@
                                                 R$${anuncio.preco}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <a href="${pageContext.request.contextPath}/anuncio?action=listareditar&id=${anuncio.id}"
+                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, anuncio.id).build()}"
                                                class="btn btn-sm btn-primary">Editar</a>
-                                            <a href="${pageContext.request.contextPath}/anuncio?action=excluir&id=${anuncio.id}"
+                                            <input hidden value="${anuncio.id}">
+                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, anuncio.id).build()}"
                                                class="btn btn-sm btn-danger">Excluir</a>
                                         </div>
                                     </div>
@@ -106,7 +109,7 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
+CSS e JavaScript <!-- Logout Modal-->
 <c:import url="component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->

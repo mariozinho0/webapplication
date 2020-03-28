@@ -9,7 +9,7 @@
     <a class="sidebar-brand d-flex align-items-center justify-content-center"
        href="${s:mvcUrl('anuncio.listar').build()}">
         <div class="sidebar-brand-icon">
-            <img class="logo-gp" src="img/logo.png"/>
+            <img class="logo-gp" src="${pageContext.request.contextPath}/img/logo.png"/>
         </div>
         <div class="sidebar-brand-text mx-3">GoPark</div>
     </a>
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="${s:mvcUrl('anunciar').build()}">
             <i class="fas fa-fw fa-car"></i>
             <span>Anunciar</span>

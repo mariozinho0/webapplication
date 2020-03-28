@@ -134,91 +134,57 @@
                                                                     </div>
                                                                     <div class="card-body">
                                                                         <!-- TODO COLOCAR NAME NO FORM??? -->
-                                                                        <form:form class="user">
+                                                                        <form class="user">
                                                                             <div class="form-group row">
                                                                                 <!-- Nome -->
                                                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                    <form:input
-                                                                                            class="form-control form-control-user"
-                                                                                            placeholder="Nome"
-                                                                                            path="nome"/>
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="Nome">
                                                                                 </div>
                                                                                 <!-- Name User-->
                                                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                    <form:input
-                                                                                            class="form-control form-control-user"
-                                                                                            path="usuario"
-                                                                                            placeholder="Nome de Usuário"/>
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="Nome de Usuário">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
                                                                                 <!-- Celular -->
                                                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                    <form:input
-                                                                                            class="form-control form-control-user"
-                                                                                            placeholder="Celular"
-                                                                                            path="celular"
-                                                                                            onkeypress="$(this).mask('(00) 00000-0000')"/>
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="Celular" onkeypress="$(this).mask('(00) 00000-0000')">
                                                                                 </div>
                                                                                 <!-- CPF -->
                                                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                    <form:input
-                                                                                            class="form-control form-control-user"
-                                                                                            placeholder="CPF"
-                                                                                            path="cpf"
-                                                                                            onkeypress="$(this).mask('000.000.000-00');"/>
+                                            <input type="text" class="form-control form-control-user"  id="" placeholder="CPF" onkeypress="$(this).mask('000.000.000-00');">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
                                                                                 <!-- Data de Nascimento -->
                                                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                    <form:input
-                                                                                            class="form-control form-control-user"
-                                                                                            placeholder="Data de nascimento"
-                                                                                            path="nascimento"
-                                                                                            onkeypress="$(this).mask('00/00/0000')"/>
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="Data de nascimento" onkeypress="$(this).mask('00/00/0000')">
                                                                                 </div>
                                                                                 <!-- SEXO M or F -->
                                                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                    <form:select
-                                                                                            class="form-control sex-user"
-                                                                                            id="sexUser" path="sexo">
-                                                                                        <form:option
-                                                                                                value="M">Masculino</form:option>
-                                                                                        <form:option
-                                                                                                value="F">Feminino</form:option>
-                                                                                    </form:select>
+                                            <select class="form-control sex-user" id="sexUser">
+                                              <option>Masculino</option>
+                                              <option>Feminino</option>
+                                            </select>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <!-- EMAIL -->
-                                                                                <form:input type="email"
-                                                                                            class="form-control form-control-user"
-                                                                                            placeholder="Digite seu email..."
-                                                                                            path="email"/>
+                                          <input type="email" class="form-control form-control-user" id="" placeholder="Digite seu email...">
                                                                             </div>
                                                                             <div class="form-group row">
                                                                                 <!-- Senha -->
                                                                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                                                                    <form:input type="password"
-                                                                                                class="form-control form-control-user"
-                                                                                                placeholder="Senha"
-                                                                                                path="senha"
-                                                                                    />
+                                            <input type="password" class="form-control form-control-user" id="" placeholder="Senha">
                                                                                 </div>
                                                                                 <!-- Biografia-->
-                                                                                <form:textarea
-                                                                                        class="form-control biografia"
-                                                                                        name="Biografia" rows="5"
-                                                                                        cols="50" wrap="virtual"
-                                                                                        placeholder="Biografia..."
-                                                                                        path="biografia"></form:textarea>
+                                          <textarea class="form-control biografia" name="Biografia" rows="5" cols="50" wrap="virtual" placeholder="Biografia..."></textarea>
                                                                             </div>
                                                                             <hr class="sidebar-divider">
                                                                             <button class="btn btn-primary btn-right"
                                                                                     type="submit">Salvar
                                                                             </button>
-                                                                        </form:form>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -72,7 +72,7 @@
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="${s:mvcUrl('login').build()}" data-toggle="modal"
-                   data-target="#logoutModal">
+                    data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Sair
                 </a>

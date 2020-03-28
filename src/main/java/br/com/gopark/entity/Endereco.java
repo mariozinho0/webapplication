@@ -1,6 +1,8 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Estado;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
@@ -23,7 +25,7 @@ public class Endereco {
     /*Anotação que gera uma SEQUENCE através de um padrão @SequenceGenerator*/
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco")
     /*Anotação que define as características da coluna*/
-    @Column(name = "id", nullable = false, length = 8)
+    @Column(name = "id", nullable = false, length = 8, updatable = false)
     private Integer id;
 
     /*Anotação que indica o uso de uma Enum e seu tipo de valor*/
@@ -69,7 +71,8 @@ public class Endereco {
     @ManyToOne(fetch = FetchType.LAZY)
     @NotFound(action = NotFoundAction.IGNORE)
     /*Anotação que referencia a coluna da FK*/
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_usuario", updatable = false)
+    @Fetch(FetchMode.JOIN)
     private Usuario usuario;
 
 

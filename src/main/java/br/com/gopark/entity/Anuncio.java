@@ -78,7 +78,7 @@ public class Anuncio {
     /*Anotação que indica qual tipo de dado temporal será armazenado*/
     @Temporal(TemporalType.DATE)
     /*Anotação que define as características da coluna*/
-    @Column(name = "data", nullable = false)
+    @Column(name = "data", nullable = false, updatable = false)
     private Calendar data;
 
 
@@ -90,7 +90,7 @@ public class Anuncio {
     @ManyToOne(fetch = FetchType.LAZY)
     @NotFound(action = NotFoundAction.IGNORE)
     /*Anotação que refencia a coluna da FK*/
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_usuario", updatable = false)
     private Usuario usuario;
 
     /*Anotação que especifica o tipo de relacionamento:

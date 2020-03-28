@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +17,8 @@
     <title>GoPark - Editar Anúncio</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+          type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
 
@@ -25,8 +27,8 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
     <!-- Latest compiled and minified CSS -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -58,7 +60,7 @@
 
 
                 <%-- TODO APRENDER COMO FAZER CHECKBOXES --%>
-                <form:form method="POST" action="${pageContext.request.contextPath}/anuncio?postaction=editar"
+                <form:form modelAttribute="anuncio" method="POST" action="${s:mvcUrl('anuncio.editar').build()}"
                            class="user">
                 <div class="row">
                     <div class="col-lg-6 mb-4">
@@ -67,7 +69,8 @@
                                 <div class="row">
                                     <h4 class="col-sm-9 mb-3 mb-sm-0 font-weight-bold text-primary">Editar Anúncio</h4>
                                     <form:input type="number" name="id" class="col-sm-3 mb-3 mb-sm-0 form-control"
-                                                value="${editobj.id}" path="id" readonly="true"/>
+                                                path="id" readonly="true"/>
+                                    <form:hidden path="endereco.id"/>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -78,18 +81,18 @@
                                                     minlength="8"
                                                     maxlength="8" placeholder="CEP"
                                                     onkeypress="$(this).mask('00000-000')"
-                                                    value="${editobj.endereco.cep}" path="endereco.cep"/>
+                                                    path="endereco.cep"/>
                                     </div>
                                     <!-- ENDEREÇO -->
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <form:input name="endereco" class="form-control form-control-user"
-                                                    placeholder="Endereço" value="${editobj.endereco.endereco}"
+                                                    placeholder="Endereço"
                                                     path="endereco.endereco"/>
                                     </div>
                                     <!-- NÚMERO -->
                                     <div class="col-sm-3 mb-3 mb-sm-0">
                                         <form:input type="number" name="numero" class="form-control form-control-user"
-                                                    placeholder="Número" value="${editobj.endereco.numero}"
+                                                    placeholder="Número"
                                                     path="endereco.numero"/>
                                     </div>
                                 </div>
@@ -97,21 +100,21 @@
                                     <!-- BAIRRO -->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:input name="bairro" class="form-control form-control-user"
-                                                    placeholder="Bairro" value="${editobj.endereco.bairro}"
+                                                    placeholder="Bairro"
                                                     path="endereco.bairro"/>
                                     </div>
                                     <!-- CIDADE -->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:input name="cidade" class="form-control form-control-user"
-                                                    placeholder="Cidade" value="${editobj.endereco.cidade}"
+                                                    placeholder="Cidade"
                                                     path="endereco.cidade"/>
                                     </div>
                                     <!-- ESTADO -->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:select name="estado" class="form-control estados" id="Estados"
                                                      path="endereco.estado">
-                                            <form:option selected="selected"
-                                                         value="${editobj.endereco.estado}">${editobj.endereco.estado}</form:option>
+                                            <form:option
+                                                    value=""></form:option>
                                             <form:option value="AC">Acre</form:option>
                                             <form:option value="AL">Alagoas</form:option>
                                             <form:option value="AP">Amapá</form:option>
@@ -146,14 +149,14 @@
                                     <!--VAGAS-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:input type="number" name="vagas" class="form-control form-control-user"
-                                                    placeholder="Número de Vagas" value="${editobj.vagas}"
+                                                    placeholder="Número de Vagas"
                                                     path="vagas"/>
                                     </div>
                                     <!--CATEGORIA-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:select name="categoria" class="form-control estados" path="categoria">
-                                            <form:option selected="selected"
-                                                         value="${editobj.categoria}">${editobj.categoria}</form:option>
+                                            <form:option
+                                                    value=""></form:option>
                                             <form:option value="HATCH">Hatch</form:option>
                                             <form:option value="SEDAN">Sedan</form:option>
                                             <form:option value="SUV">SUV</form:option>
@@ -165,7 +168,7 @@
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:input name="dimensoes" class="form-control form-control-user"
                                                     placeholder="Dimensões em metros"
-                                                    onkeypress="$(this).mask('00x00')" value="${editobj.dimensoes}"
+                                                    onkeypress="$(this).mask('00x00')" value=""
                                                     path="dimensoes"/>
                                     </div>
                                 </div>
@@ -174,8 +177,8 @@
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:select class="form-control estados" name="disponibilidade"
                                                      path="disponibilidade">
-                                            <form:option selected="selected"
-                                                         value="${editobj.disponibilidade}">${editobj.disponibilidade}</form:option>
+                                            <form:option
+                                                    value=""></form:option>
                                             <form:option value="MANHA">Manhã</form:option>
                                             <form:option value="TARDE">Tarde</form:option>
                                             <form:option value="NOITE">Noite</form:option>
@@ -188,15 +191,15 @@
                                         <form:input type="text" name="preco" class="form-control form-control-user"
                                                     placeholder="Preço"
                                                     onkeypress="$(this).mask('R$ #0,00',{reverse: false})"
-                                                    value="${editobj.preco}" path="preco">
+                                                    value="" path="preco"/>
                                     </div>
                                     <!--Modalidade-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:select name="modalidade" class="form-control estados"
                                                      title="Anunciar por:"
                                                      data-style="select-special" path="modalidade">
-                                            <form:option selected="selected"
-                                                         value="${editobj.modalidade}">${editobj.modalidade}</form:option>
+                                            <form:option
+                                                    value=""></form:option>
                                             <form:option value="HORA">Hora</form:option>
                                             <form:option value="DIA">Dia</form:option>
                                             <form:option value="MES">Mês</form:option>
@@ -239,16 +242,16 @@
 <c:import url="../component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
 
 </body>
 

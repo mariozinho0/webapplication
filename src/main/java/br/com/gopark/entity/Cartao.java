@@ -48,7 +48,7 @@ public class Cartao {
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @ManyToOne
     /*Anotação que referencia a coluna da FK*/
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_usuario", updatable = false)
     private Usuario usuario;
 
 

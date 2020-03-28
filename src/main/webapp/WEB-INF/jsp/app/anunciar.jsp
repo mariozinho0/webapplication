@@ -143,7 +143,7 @@
                                         <!-- CATEGORIA -->
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <form:select class="form-control estados" name="categoria" path="categoria">
-                                                <form:option selected="selected"
+                                                <form:option
                                                              value="">Veículo Compativel:</form:option>
                                                 <form:option value="HATCH">Hatch</form:option>
                                                 <form:option value="SEDAN">Sedan</form:option>
@@ -164,7 +164,7 @@
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <form:select class="form-control estados" name="disponibilidade"
                                                          path="disponibilidade">
-                                                <form:option selected="selected" value="">Disponibilidade:</form:option>
+                                                <form:option value="">Disponibilidade:</form:option>
                                                 <form:option value="MANHA">Manhã</form:option>
                                                 <form:option value="TARDE">Tarde</form:option>
                                                 <form:option value="NOITE">Noite</form:option>
@@ -184,7 +184,7 @@
                                             <form:select class="form-control estados" title="Anunciar por:"
                                                          data-style="select-special" name="modalidade"
                                                          path="modalidade">
-                                                <form:option selected="selected" value="">Anunciar por:</form:option>
+                                                <form:option value="">Anunciar por:</form:option>
                                                 <form:option value="HORA">Hora</form:option>
                                                 <form:option value="DIA">Dia</form:option>
                                                 <form:option value="MES">Mês</form:option>

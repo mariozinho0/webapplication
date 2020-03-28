@@ -17,11 +17,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class AppWebConfiguration implements WebMvcConfigurer {
 
 
+    /**
+     * Habilita mapeamento de CSS e JavaScript
+     */
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
-
 
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
