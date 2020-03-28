@@ -67,7 +67,7 @@ public class Usuario {
     /*Anotação que define as características da coluna*/
     @Column(name = "nascimento", nullable = false)
     /*Anotação para formatação de data*/
-    @DateTimeFormat(pattern = "ddMMyyyy") //TODO TIRAR (pattern = "")
+    @DateTimeFormat(pattern = "dd/MM/yyyy") //TODO TIRAR (pattern = "") DEPOIS DE ARRUMAR DEFAULT
     private Calendar nascimento;
 
     /*Anotação que define as características da coluna*/

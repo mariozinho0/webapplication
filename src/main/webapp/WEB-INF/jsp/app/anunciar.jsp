@@ -64,13 +64,13 @@
                             </div>
                             <div class="card-body">
                                 <form:form modelAttribute="anuncio" action="${s:mvcUrl('anunciar.cadastrar').build()}"
-                                           method="POST" class="user">
+                                           method="POST" class="user" id="anunciar">
                                     <div class="form-group row">
                                         <!-- CEP -->
                                         <div class="col-sm-3 mb-3 mb-sm-0">
                                             <form:input class="form-control form-control-user" name="cep"
-                                                        minlength="8" maxlength="8" placeholder="CEP"
-                                                        onkeypress="$(this).mask('00000-000')" path="endereco.cep"/>
+                                                        minlength="8" maxlength="8" placeholder="CEP" id="cep"
+                                                        path="endereco.cep"/>
                                         </div>
                                         <!-- ENDEREÇO -->
                                         <div class="col-sm-6 mb-3 mb-sm-0">
@@ -156,7 +156,7 @@
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <form:input class="form-control form-control-user" name="dimensoes"
                                                         placeholder="Dimensões em metros"
-                                                        onkeypress="$(this).mask('00x00')" path="dimensoes"/>
+                                                        id="dimensoes" path="dimensoes"/>
                                         </div>
                                     </div>
                                     <!-- DISPONIBILIDADE -->
@@ -176,7 +176,7 @@
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <form:input class="form-control form-control-user" name="preco"
                                                         placeholder="Preço"
-                                                        onkeypress="$(this).mask('R$ #0,00',{reverse: false})"
+                                                        id="preco"
                                                         path="preco"/>
                                         </div>
                                         <!-- MODALIDADE -->
@@ -229,7 +229,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
@@ -238,6 +238,21 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+
+<!-- Masks -->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#cep').mask('00000-000');
+        $('#preco').mask('R$ #0,00', {reverse: false});
+        $('#dimensoes').mask('00x00');
+        $('#anunciar').submit(function () {
+            $('#cep').unmask();
+            $('#preco').unmask().mask('#0.00', {reverse: false});
+        });
+    });
+
+</script>
 
 </body>
 

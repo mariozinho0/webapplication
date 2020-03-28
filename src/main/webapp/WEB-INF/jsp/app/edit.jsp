@@ -61,7 +61,7 @@
 
                 <%-- TODO APRENDER COMO FAZER CHECKBOXES --%>
                 <form:form modelAttribute="anuncio" method="POST" action="${s:mvcUrl('anuncio.editar').build()}"
-                           class="user">
+                           class="user" id="editar">
                 <div class="row">
                     <div class="col-lg-6 mb-4">
                         <div class="card shadow mb-4">
@@ -80,7 +80,7 @@
                                         <form:input name="cep" class="form-control form-control-user"
                                                     minlength="8"
                                                     maxlength="8" placeholder="CEP"
-                                                    onkeypress="$(this).mask('00000-000')"
+                                                    id="cep"
                                                     path="endereco.cep"/>
                                     </div>
                                     <!-- ENDEREÇO -->
@@ -168,7 +168,7 @@
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:input name="dimensoes" class="form-control form-control-user"
                                                     placeholder="Dimensões em metros"
-                                                    onkeypress="$(this).mask('00x00')" value=""
+                                                    id="dimensoes"
                                                     path="dimensoes"/>
                                     </div>
                                 </div>
@@ -190,8 +190,8 @@
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <form:input type="text" name="preco" class="form-control form-control-user"
                                                     placeholder="Preço"
-                                                    onkeypress="$(this).mask('R$ #0,00',{reverse: false})"
-                                                    value="" path="preco"/>
+                                                    id="preco"
+                                                    path="preco"/>
                                     </div>
                                     <!--Modalidade-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
@@ -243,7 +243,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
@@ -252,6 +252,21 @@
 
 <!-- Custom scripts for all pages-->
 <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
+
+<!-- Masks -->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#cep').mask('00000-000');
+        $('#preco').mask('R$ #0,00', {reverse: false});
+        $('#dimensoes').mask('00x00');
+        $('#editar').submit(function () {
+            $('#cep').unmask();
+            $('#preco').unmask().mask('#0.00', {reverse: false});
+        });
+    });
+
+</script>
 
 </body>
 

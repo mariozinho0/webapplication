@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -70,8 +72,7 @@
                                                 - ${anuncio.endereco.estado}</div>
                                             <div class="h6 mb-0 font-weight-bold text-gray-800">
                                                 Endereço: ${anuncio.endereco.endereco}</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800">Preço:
-                                                R$${anuncio.preco}</div>
+                                            <div class="h6 mb-0 font-weight-bold text-gray-800" id="preco">Preço: <fmt:formatNumber value="${anuncio.preco}" type="currency"/></div>
                                         </div>
                                         <div class="col-auto">
                                             <a href="${s:mvcUrl('anuncio.editform').arg(0, anuncio.id).build()}"

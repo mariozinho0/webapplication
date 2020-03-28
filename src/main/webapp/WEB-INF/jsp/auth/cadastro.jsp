@@ -42,7 +42,7 @@
                         </div>
                         <form:form modelAttribute="usuario" action="${s:mvcUrl('cadastro.cadastrar').build()}"
                                    method="POST"
-                                   class="user needs-validation">
+                                   class="user needs-validation" id="cadastrar">
                             <div class="form-group row">
                                 <!-- Nome -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -60,13 +60,13 @@
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <form:input class="form-control form-control-user" name="celular"
                                                 placeholder="Celular" minlength="11" maxlength="11"
-                                                onkeypress="$(this).mask('(00) 00000-0000')" path="celular"/>
+                                                id="celular" path="celular"/>
                                 </div>
                                 <!-- CPF -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <form:input class="form-control form-control-user" name="cpf"
                                                 placeholder="CPF" minlength="11" maxlength="11"
-                                                onkeypress="$(this).mask('000.000.000-00');" path="cpf"/>
+                                                id="cpf" path="cpf"/>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -74,7 +74,7 @@
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <form:input class="form-control form-control-user" name="nascimento"
                                                 placeholder="Data de nascimento" minlength="8" maxlength="8"
-                                                onkeypress="$(this).mask('00/00/0000')" path="nascimento"/>
+                                                id="nascimento" path="nascimento"/>
                                 </div>
                                 <!-- SEXO M or F -->
                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -116,7 +116,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script src="js/validate.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -125,6 +125,21 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+
+<!-- Masks -->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#celular').mask('(00) 00000-0000');
+        $('#cpf').mask('000.000.000-00');
+        $('#nascimento').mask('00/00/0000')
+        $('#cadastrar').submit(function () {
+            $('#celular').unmask();
+            $('#cpf').unmask();
+        });
+    });
+
+</script>
 
 </body>
 
