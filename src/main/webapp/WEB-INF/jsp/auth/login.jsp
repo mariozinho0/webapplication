@@ -28,7 +28,7 @@
 
 <body class="bg-gray-200">
 
-<div class="container login-padding">
+<div class="container">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">

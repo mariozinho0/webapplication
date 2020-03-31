@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GoPark - Agendamentos</title>
+    <title>GoPark - Meus Anúncios</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,37 +48,38 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Agendamentos</h1>
+                <h1 class="h3 mb-4 text-gray-800">Meus Anúncios</h1>
 
                 <!-- Início Conteúdo -->
 
                 <div class="row">
 
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                            <div class="card-body card-body-margin">
-                                <div class="row no-gutters align-items-center">
-                                    <img class="img-anuncio" src="img/estac03.jpg">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
-                                            <i class="fas fa-map-marker-alt" style="color: red;"></i>
-                                            ESTADO
+                        <div class="col-xl-4 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body card-body-margin">
+                                    <div class="row no-gutters align-items-center">
+                                        <img class="img-anuncio" src="img/estac03.jpg">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
+                                                <i class="fas fa-map-marker-alt" style="color: red;"></i>
+                                                ESTADO
+                                            </div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">
+                                                Endereço:
+                                            </div>
+                                            <div class="h6 mb-0 font-weight-bold font-price" id="preco">
+                                                Preço:
+                                            </div>
                                         </div>
-                                        <div class="h6 mb-0 font-weight-bold font-color">
-                                            Endereço:
+                                        <div class="col-md-12">
+                                            <a href="#" class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
+                                            <input hidden value="${anuncio.id}">
+                                            <a href="#" class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
                                         </div>
-                                        <div class="h6 mb-0 font-weight-bold font-price" id="preco">
-                                            Preço:
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <input hidden value="${anuncio.id}">
-                                        <a href="#" class="btn btn-danger btn-user btn-block btn-padding">Cancelar</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <!-- Fim Conteúdo -->

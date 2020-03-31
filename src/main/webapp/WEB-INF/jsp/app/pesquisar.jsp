@@ -60,27 +60,27 @@
 
                     <%-- Colocar um if action = pesquisa do --%>
                     <c:forEach items="${pesquisa}" var="pesquisa">
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-4 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
+                                <div class="card-body card-body-margin">
                                     <div class="row no-gutters align-items-center">
                                         <img class="img-anuncio" src="img/estac03.jpg">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
-                                                <i class="fas fa-map-marker-alt"
-                                                   style="color: red;"></i> ${pesquisa.endereco.cidade}
-                                                - ${pesquisa.endereco.estado}</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                                Endereço: ${pesquisa.endereco.endereco}</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800" id="preco">Preço:
-                                                <fmt:formatNumber value="${pesquisa.preco}" type="currency"/></div>
+                                                <i class="fas fa-map-marker-alt" style="color: red;"></i>
+                                                    ${pesquisa.endereco.cidade} - ${pesquisa.endereco.bairro} - ${pesquisa.endereco.estado}
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold font-color">
+                                                ${pesquisa.endereco.endereco}
+                                            </div>
+                                            <div class="h3 mb-0 font-weight-bold font-price" id="preco">
+                                                <fmt:formatNumber value="${pesquisa.preco}" type="currency"/>
+                                            </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, pesquisa.id).build()}"
-                                               class="btn btn-sm btn-primary">Editar</a>
+                                        <div class="col-md-12">
+                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, pesquisa.id).build()}" class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
                                             <input hidden value="${pesquisa.id}">
-                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, pesquisa.id).build()}"
-                                               class="btn btn-sm btn-danger">Excluir</a>
+                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, pesquisa.id).build()}" class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
                                         </div>
                                     </div>
                                 </div>

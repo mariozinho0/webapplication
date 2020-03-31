@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GoPark - Alugar</title>
+    <title>GoPark - Informações do Anúncio</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,11 +48,11 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Alugar</h1>
+                <h1 class="h3 mb-4 text-gray-800">Informações do Anúncio</h1>
 
                 <!-- Início Conteúdo -->
 
-                CONTÉUDO
+
 
                 <!-- Fim Conteúdo -->
 

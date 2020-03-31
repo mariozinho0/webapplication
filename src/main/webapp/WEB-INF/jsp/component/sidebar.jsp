@@ -42,9 +42,9 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="${s:mvcUrl('alugar').build()}">
-            <i class="fas fa-fw fa-car-side"></i>
-            <span>Alugar</span>
+        <a class="nav-link" href="${s:mvcUrl('meus-anuncios').build()}">
+            <i class="fas fa-fw fa-parking"></i>
+            <span>Meus Anúncios</span>
         </a>
     </li>
 
