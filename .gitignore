@@ -6,3 +6,9 @@ server/wildfly-16.0.0.Final/standalone/configuration/
 server/wildfly-16.0.0.Final/standalone/log/
 server/wildfly-16.0.0.Final/standalone/tmp/
 /server/wildfly-16.0.0.Final/standalone/configuration/logging.properties
+.project
+.classpath
+org.eclipse.jdt.apt.core.prefs
+org.eclipse.jdt.core.prefs
+org.eclipse.m2e.core.prefs
+server/wildfly-16.0.0.Final/standalone/data/kernel
