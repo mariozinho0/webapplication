@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -98,7 +98,6 @@
                                 </div>
                             </div>
                             <input type="submit" class="btn btn-primary btn-user btn-block" value="Registrar">
-                            </input>
                         </form:form>
                         <hr>
                         <div class="text-center">
@@ -133,7 +132,7 @@
     $(document).ready(function () {
         $('#celular').mask('(00) 00000-0000');
         $('#cpf').mask('000.000.000-00');
-        $('#nascimento').mask('00/00/0000')
+        $('#nascimento').mask('00/00/0000');
         $('#cadastrar').submit(function () {
             $('#celular').unmask();
             $('#cpf').unmask();

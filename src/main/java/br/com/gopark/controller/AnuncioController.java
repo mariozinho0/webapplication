@@ -5,7 +5,7 @@ import br.com.gopark.dao.EnderecoDAO;
 import br.com.gopark.dao.UsuarioDAO;
 import br.com.gopark.entity.Anuncio;
 import br.com.gopark.entity.Endereco;
-import br.com.gopark.entity.Usuario;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+@Slf4j
 @Controller
 public class AnuncioController {
 
@@ -101,9 +102,17 @@ public class AnuncioController {
 
     @Transactional
     @RequestMapping(value = "excluir/{id}", method = RequestMethod.GET, name = "anuncio.excluir")
-    public ModelAndView excluir(@PathVariable Integer id, Anuncio anuncio) throws Exception {
+    public ModelAndView excluir(@PathVariable Integer id, Anuncio anuncio) {
 
-        anuncioDAO.delete(id);
+        try {
+
+            anuncioDAO.delete(id);
+
+        } catch (Exception e) {
+
+            log.error("Erro ao deletar anúncio com id: " + id, e);
+
+        }
 
         return new ModelAndView("redirect:/");
 
