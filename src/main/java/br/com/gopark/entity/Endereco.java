@@ -1,6 +1,8 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Estado;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.NotFound;
@@ -73,6 +75,7 @@ public class Endereco {
     /*Anotação que referencia a coluna da FK*/
     @JoinColumn(name = "id_usuario", updatable = false)
     @Fetch(FetchMode.JOIN)
+    @JsonBackReference
     private Usuario usuario;
 
 
@@ -82,6 +85,7 @@ public class Endereco {
         - 1º termo (antes do "To") representa a cardinalidade da entidade atual
         - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "endereco")
+    @JsonManagedReference
     private List<Anuncio> anuncios;
 
 

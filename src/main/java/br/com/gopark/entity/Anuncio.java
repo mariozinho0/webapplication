@@ -3,6 +3,7 @@ package br.com.gopark.entity;
 import br.com.gopark.enums.Categoria;
 import br.com.gopark.enums.Disponibilidade;
 import br.com.gopark.enums.Modalidade;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -91,6 +92,7 @@ public class Anuncio {
     @NotFound(action = NotFoundAction.IGNORE)
     /*Anotação que refencia a coluna da FK*/
     @JoinColumn(name = "id_usuario", updatable = false)
+    @JsonBackReference
     private Usuario usuario;
 
     /*Anotação que especifica o tipo de relacionamento:
@@ -100,6 +102,7 @@ public class Anuncio {
     @NotFound(action = NotFoundAction.IGNORE)
     /*Anotação que referencia a coluna da FK*/
     @JoinColumn(name = "id_endereco")
+    @JsonBackReference
     private Endereco endereco;
 
 

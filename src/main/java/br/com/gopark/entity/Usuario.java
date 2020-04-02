@@ -1,6 +1,7 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Sexo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -81,6 +82,7 @@ public class Usuario {
     - 1º termo (antes do "To") representa a cardinalidade da entidade atual
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference
     private List<Endereco> enderecos;
 
     /*Anotação que especifica o tipo de relacionamento:
@@ -93,6 +95,7 @@ public class Usuario {
     - 1º termo (antes do "To") representa a cardinalidade da entidade atual
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference
     private List<Anuncio> anuncios;
 
     /*Anotação que especifica o tipo de relacionamento:
