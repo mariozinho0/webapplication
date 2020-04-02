@@ -46,6 +46,7 @@ public class AnuncioResource {
     }
 
 
+    //TODO ARRUMAR
     @Transactional
     @PutMapping("/{id}")
     public void editar(@RequestBody Anuncio anuncio, @PathVariable Integer id) {
@@ -56,7 +57,6 @@ public class AnuncioResource {
     }
 
 
-    //TODO ARRUMAR
     @Transactional
     @DeleteMapping("/{id}")
     public void remover(@PathVariable Integer id) {
