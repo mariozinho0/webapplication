@@ -59,7 +59,6 @@
                 <!-- Editar Anúncios -->
 
 
-                <%-- TODO APRENDER COMO FAZER CHECKBOXES --%>
                 <%--@elvariable id="anuncio" type="spring"--%>
                 <form:form modelAttribute="anuncio" method="POST" action="${s:mvcUrl('anuncio.editar').build()}"
                            class="user" id="editar">

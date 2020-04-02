@@ -102,7 +102,6 @@
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <form:select class="form-control estados" id="Estados" name="estado"
                                                          path="endereco.estado">
-                                                <!-- TODO VALIDAÇÃO DO ESTADO EM BRANCO -->
                                                 <form:option
                                                         value="">Selecione o Estado</form:option>
                                                 <form:option value="AC">Acre</form:option>

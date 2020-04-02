@@ -7,9 +7,6 @@ import javax.persistence.PersistenceContext;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-
-//TODO PESQUISAR COMO LANÇAR EXCEPTIONS
-
 /**
  * Classe que trabalha as operações do Banco de Dados de forma genérica
  */

@@ -4,6 +4,10 @@ import br.com.gopark.enums.Categoria;
 import br.com.gopark.enums.Disponibilidade;
 import br.com.gopark.enums.Modalidade;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -12,6 +16,9 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
@@ -114,169 +121,5 @@ public class Anuncio {
     @OneToOne(mappedBy = "anuncio")
     private Agendamento agendamento;
 
-
-    //TODO ARRUMAR CONSTRUTORES MAP BIDIRECIONAL
-    //Construtores
-
-    /*Construtor com todos atributos*/
-    public Anuncio(BigDecimal preco, Integer vagas, String descricao, Categoria categoria, Modalidade modalidade, Calendar expiracao, Disponibilidade disponibilidade, String dimensoes, String foto, Usuario usuario, Endereco endereco) {
-
-        this.preco = preco;
-        this.vagas = vagas;
-        this.descricao = descricao;
-        this.categoria = categoria;
-        this.modalidade = modalidade;
-        this.expiracao = expiracao;
-        this.disponibilidade = disponibilidade;
-        this.dimensoes = dimensoes;
-        this.foto = foto;
-        this.usuario = usuario;
-        this.endereco = endereco;
-
-    }
-
-    /*Contrutor só com os atributos necessários*/
-    public Anuncio(BigDecimal preco, Integer vagas, Categoria categoria, Modalidade modalidade, Disponibilidade disponibilidade, String dimensoes, Usuario usuario, Endereco endereco) {
-
-        this.preco = preco;
-        this.vagas = vagas;
-        this.categoria = categoria;
-        this.modalidade = modalidade;
-        this.disponibilidade = disponibilidade;
-        this.dimensoes = dimensoes;
-        this.usuario = usuario;
-        this.endereco = endereco;
-
-    }
-
-    /*Construtor só com id*/
-    public Anuncio(Integer id) {
-
-        this.id = id;
-
-    }
-
-    /*Construtor padrão*/
-    public Anuncio() {
-
-    }
-
-
-    //Getters e Setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-
-        this.id = id;
-
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
-
-    public Integer getVagas() {
-        return vagas;
-    }
-
-    public void setVagas(Integer vagas) {
-        this.vagas = vagas;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    public Modalidade getModalidade() {
-        return modalidade;
-    }
-
-    public void setModalidade(Modalidade modalidade) {
-        this.modalidade = modalidade;
-    }
-
-    public Calendar getExpiracao() {
-        return expiracao;
-    }
-
-    public void setExpiracao(Calendar expiracao) {
-        this.expiracao = expiracao;
-    }
-
-    public Disponibilidade getDisponibilidade() {
-        return disponibilidade;
-    }
-
-    public void setDisponibilidade(Disponibilidade disponibilidade) {
-        this.disponibilidade = disponibilidade;
-    }
-
-    public String getDimensoes() {
-        return dimensoes;
-    }
-
-    public void setDimensoes(String dimensoes) {
-        this.dimensoes = dimensoes;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public Calendar getData() {
-        return data;
-    }
-
-    //TODO TIRAR NO FUTURO?
-    public void setData(Calendar data) {
-        this.data = data;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public Agendamento getAgendamento() {
-        return agendamento;
-    }
-
-    public void setAgendamento(Agendamento agendamento) {
-        this.agendamento = agendamento;
-    }
 
 }

@@ -4,10 +4,17 @@ import br.com.gopark.enums.Aprovacao;
 import br.com.gopark.enums.Categoria;
 import br.com.gopark.enums.Marca;
 import br.com.gopark.enums.TipoVeiculo;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
@@ -95,130 +102,4 @@ public class Veiculo {
     private List<Agendamento> agendamentos;
 
 
-    //TODO ARRUMAR CONSTRUTORES MAP BIDIRECIONAL
-    // Construtores
-
-    /*Construtor só com id*/
-    public Veiculo(Integer id) {
-
-        this.id = id;
-
-    }
-
-    /*Construtor com todos atributos*/
-    public Veiculo() {
-
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public Marca getMarca() {
-        return marca;
-    }
-
-    public void setMarca(Marca marca) {
-        this.marca = marca;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public String getHabilitacao() {
-        return habilitacao;
-    }
-
-    public void setHabilitacao(String habilitacao) {
-        this.habilitacao = habilitacao;
-    }
-
-    public Aprovacao getAprovacao() {
-        return aprovacao;
-    }
-
-    public void setAprovacao(Aprovacao aprovacao) {
-        this.aprovacao = aprovacao;
-    }
-
-    public TipoVeiculo getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(TipoVeiculo veiculo) {
-        this.veiculo = veiculo;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public List<Agendamento> getAgendamentos() {
-        return agendamentos;
-    }
-
-    public void setAgendamentos(List<Agendamento> agendamentos) {
-        this.agendamentos = agendamentos;
-    }
 }

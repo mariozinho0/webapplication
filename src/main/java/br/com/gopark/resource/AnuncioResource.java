@@ -17,6 +17,7 @@ public class AnuncioResource {
     @Autowired
     private AnuncioDAO anuncioDAO;
 
+    //TODO Mostrar informações como endereço e id do usuário
     @GetMapping
     public List<Anuncio> listar() {
 

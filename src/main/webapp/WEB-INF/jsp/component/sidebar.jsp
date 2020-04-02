@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 
-<%-- TODO CHECAR SE NÃO QUEBROU CSS --%>
-
 <ul class="navbar-nav bg-dashboard sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->

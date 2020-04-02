@@ -2,12 +2,19 @@ package br.com.gopark.entity;
 
 import br.com.gopark.enums.Sexo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Calendar;
 import java.util.List;
 
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
@@ -110,177 +117,5 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Cartao> cartoes;
 
-
-    //TODO ARRUMAR CONSTRUTORES MAP BIDIRECIONAL
-    //Construtores
-
-    /*Construtor com todos atributos*/
-    public Usuario (String nome, String usuario, String email, Long celular, String cpf, String biografia, String foto, Sexo sexo, Calendar nascimento, String senha) {
-
-        this.nome = nome;
-        this.usuario = usuario;
-        this.email = email;
-        this.celular = celular;
-        this.cpf = cpf;
-        this.biografia = biografia;
-        this.foto = foto;
-        this.sexo = sexo;
-        this.nascimento = nascimento;
-        this.senha = senha;
-
-    }
-
-    /*Contrutor só com os atributos necessários*/
-    public Usuario (String nome, String usuario, String email, Long celular, String cpf, Sexo sexo, Calendar nascimento, String senha) {
-
-        this.nome = nome;
-        this.usuario = usuario;
-        this.email = email;
-        this.celular = celular;
-        this.cpf = cpf;
-        this.sexo = sexo;
-        this.nascimento = nascimento;
-        this.senha = senha;
-
-    }
-
-    /*Contrutor só com o id*/
-    public Usuario(Integer id) {
-
-        this.id = id;
-
-    }
-
-    /*Construtor padrão*/
-    public Usuario() {
-
-    }
-
-
-    //Getters e Setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getCelular() {
-        return celular;
-    }
-
-    public void setCelular(Long celular) {
-        this.celular = celular;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getBiografia() {
-        return biografia;
-    }
-
-    public void setBiografia(String biografia) {
-        this.biografia = biografia;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public Sexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
-    }
-
-    public Calendar getNascimento() {
-        return nascimento;
-    }
-
-    public void setNascimento(Calendar nascimento) {
-        this.nascimento = nascimento;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public List<Endereco> getEnderecos() {
-        return enderecos;
-    }
-
-    public void setEnderecos(List<Endereco> endereco) {
-        this.enderecos = endereco;
-    }
-
-    public List<Veiculo> getVeiculos() {
-        return veiculos;
-    }
-
-    public void setVeiculos(List<Veiculo> veiculos) {
-        this.veiculos = veiculos;
-    }
-
-    public List<Anuncio> getAnuncios() {
-        return anuncios;
-    }
-
-    public void setAnuncios(List<Anuncio> anuncios) {
-        this.anuncios = anuncios;
-    }
-
-    public List<Banco> getBancos() {
-        return bancos;
-    }
-
-    public void setBancos(List<Banco> bancos) {
-        this.bancos = bancos;
-    }
-
-    public List<Cartao> getCartoes() {
-        return cartoes;
-    }
-
-    public void setCartoes(List<Cartao> cartoes) {
-        this.cartoes = cartoes;
-    }
 
 }

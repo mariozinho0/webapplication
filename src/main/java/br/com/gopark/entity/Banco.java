@@ -1,9 +1,16 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.TipoConta;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
@@ -51,63 +58,5 @@ public class Banco {
     @JoinColumn(name = "id_usuario", updatable = false)
     private Usuario usuario;
 
-
-    //TODO ARRUMAR CONSTRUTORES MAP BIDIRECIONAL
-    //Construtores
-
-    /*Construtor com todos atributos*/
-    public Banco(Integer agencia, Integer banco, Integer conta, TipoConta tipo, Usuario usuario) {
-
-        this.agencia = agencia;
-        this.banco = banco;
-        this.conta = conta;
-        this.tipo = tipo;
-        this.usuario = usuario;
-
-    }
-
-    /*Construtor padrão*/
-    public Banco() {
-
-    }
-
-
-    //Getters e Setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public Integer getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(Integer agencia) {
-        this.agencia = agencia;
-    }
-
-    public Integer getBanco() {
-        return banco;
-    }
-
-    public void setBanco(Integer banco) {
-        this.banco = banco;
-    }
-
-    public Integer getConta() {
-        return conta;
-    }
-
-    public void setConta(Integer conta) {
-        this.conta = conta;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
 }

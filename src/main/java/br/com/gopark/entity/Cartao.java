@@ -1,7 +1,15 @@
 package br.com.gopark.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
@@ -51,91 +59,5 @@ public class Cartao {
     @JoinColumn(name = "id_usuario", updatable = false)
     private Usuario usuario;
 
-
-    //TODO ARRUMAR CONSTRUTORES MAP BIDIRECIONAL
-    //Construtores
-
-    /*Construtor com todos atributos*/
-    public Cartao(Integer numero, Integer validade, String descricao, Integer seguranca, String responsavel, Usuario usuario) {
-
-        this.numero = numero;
-        this.validade = validade;
-        this.descricao = descricao;
-        this.seguranca = seguranca;
-        this.responsavel = responsavel;
-        this.usuario = usuario;
-
-    }
-
-    /*Contrutor só com os atributos necessários*/
-    public Cartao(Integer numero, Integer validade, Integer seguranca, String responsavel, Usuario usuario) {
-
-        this.numero = numero;
-        this.validade = validade;
-        this.seguranca = seguranca;
-        this.responsavel = responsavel;
-        this.usuario = usuario;
-
-    }
-
-    /*Construtor padrão*/
-    public Cartao() {
-
-    }
-
-
-    //Getters e Setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public Integer getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
-
-    public Integer getValidade() {
-        return validade;
-    }
-
-    public void setValidade(Integer validade) {
-        this.validade = validade;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Integer getSeguranca() {
-        return seguranca;
-    }
-
-    public void setSeguranca(Integer seguranca) {
-        this.seguranca = seguranca;
-    }
-
-    public String getResponsavel() {
-        return responsavel;
-    }
-
-    public void setResponsavel(String responsavel) {
-        this.responsavel = responsavel;
-    }
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 }
