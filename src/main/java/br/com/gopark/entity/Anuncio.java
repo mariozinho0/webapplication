@@ -99,17 +99,17 @@ public class Anuncio {
     @NotFound(action = NotFoundAction.IGNORE)
     /*Anotação que refencia a coluna da FK*/
     @JoinColumn(name = "id_usuario", updatable = false)
-    @JsonBackReference
+    @JsonBackReference(value = "usuario")
     private Usuario usuario;
 
     /*Anotação que especifica o tipo de relacionamento:
     - 1º termo (antes do "To") representa a cardinalidade da entidade atual
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @NotFound(action = NotFoundAction.IGNORE)
     /*Anotação que referencia a coluna da FK*/
     @JoinColumn(name = "id_endereco")
-    @JsonBackReference
+    @JsonBackReference(value = "endereco")
     private Endereco endereco;
 
 
@@ -120,6 +120,5 @@ public class Anuncio {
         - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToOne(mappedBy = "anuncio")
     private Agendamento agendamento;
-
 
 }

@@ -5,6 +5,7 @@ import br.com.gopark.dao.EnderecoDAO;
 import br.com.gopark.dao.UsuarioDAO;
 import br.com.gopark.entity.Anuncio;
 import br.com.gopark.entity.Endereco;
+import br.com.gopark.entity.Usuario;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,11 +53,13 @@ public class AnuncioController {
     @RequestMapping(value = "anunciar", method = RequestMethod.POST, name = "anunciar.cadastrar")
     public ModelAndView cadastrar(Anuncio anuncio) {
 
+        Usuario usuario = usuarioDAO.select(1);
+
         Endereco endereco = anuncio.getEndereco();
-        endereco.setUsuario(usuarioDAO.select(1));
+        endereco.setUsuario(usuario);
         enderecoDAO.insert(endereco);
 
-        anuncio.setUsuario(usuarioDAO.select(1));
+        anuncio.setUsuario(usuario);
         anuncioDAO.insert(anuncio);
 
         return new ModelAndView("redirect:/");

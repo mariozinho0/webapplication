@@ -13,7 +13,6 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Getter @Setter
@@ -82,7 +81,7 @@ public class Endereco {
     /*Anotação que referencia a coluna da FK*/
     @JoinColumn(name = "id_usuario", updatable = false)
     @Fetch(FetchMode.JOIN)
-    @JsonBackReference
+    @JsonBackReference(value = ("usuario"))
     private Usuario usuario;
 
 
@@ -92,8 +91,7 @@ public class Endereco {
         - 1º termo (antes do "To") representa a cardinalidade da entidade atual
         - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "endereco")
-    @JsonManagedReference
+    @JsonManagedReference(value = "endereco")
     private List<Anuncio> anuncios;
-
 
 }
