@@ -59,5 +59,4 @@ public class Cartao {
     @JoinColumn(name = "id_usuario", updatable = false)
     private Usuario usuario;
 
-
 }

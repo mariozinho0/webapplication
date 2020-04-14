@@ -101,5 +101,4 @@ public class Veiculo {
     @OneToMany(mappedBy = "veiculo")
     private List<Agendamento> agendamentos;
 
-
 }

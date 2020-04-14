@@ -18,5 +18,3 @@ public class GoParkApplication extends SpringBootServletInitializer {
     }
 
 }
-
-

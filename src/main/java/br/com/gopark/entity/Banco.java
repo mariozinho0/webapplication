@@ -58,5 +58,4 @@ public class Banco {
     @JoinColumn(name = "id_usuario", updatable = false)
     private Usuario usuario;
 
-
 }
