@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -54,6 +56,7 @@
 
                 <div class="row">
 
+                    <c:forEach items="${manuncios}" var="manuncio">
                         <div class="col-xl-4 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body card-body-margin">
@@ -62,24 +65,28 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
                                                 <i class="fas fa-map-marker-alt" style="color: red;"></i>
-                                                ESTADO
+                                                ${manuncio.endereco.cidade} - ${manuncio.endereco.bairro} - ${manuncio.endereco.estado}
                                             </div>
                                             <div class="h6 mb-0 font-weight-bold font-color">
-                                                Endereço:
+                                                ${manuncio.endereco.endereco}, ${manuncio.endereco.numero}
                                             </div>
                                             <div class="h6 mb-0 font-weight-bold font-price" id="preco">
-                                                Preço:
+                                                <fmt:formatNumber value="${manuncio.preco}" type="currency"/>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <a href="#" class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
-                                            <input hidden value="${anuncio.id}">
-                                            <a href="#" class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
+                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, manuncio.id).build()}"
+                                               class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
+                                            <input hidden value="${manuncio.id}"> <%-- TODO VER SE PRECISA DISSO MESMO --%>
+                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, manuncio.id).build()}"
+                                               class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </c:forEach>
+
                 </div>
 
                 <!-- Fim Conteúdo -->

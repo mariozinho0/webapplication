@@ -8,4 +8,6 @@ public interface AnuncioDAO extends GenericDAO<Anuncio, Integer> {
 
     public List<Anuncio> getByCidade(String cidade);
 
+    public List<Anuncio> getById(Integer id);
+
 }
