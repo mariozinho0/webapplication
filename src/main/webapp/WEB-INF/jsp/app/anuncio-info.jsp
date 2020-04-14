@@ -52,7 +52,40 @@
 
                 <!-- Início Conteúdo -->
 
+                <div class="row">
 
+                    <div class="col-xl-6 col-md-6 mb-6">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body card-body-margin">
+                                <div class="row no-gutters align-items-center">
+                                    <img class="img-anuncio" src="img/estac03.jpg">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
+                                            <i class="fas fa-map-marker-alt" style="color: red;"></i>
+                                            CIDADE - ESTADO - CEP
+                                        </div>
+                                        <div class="h6 mb-0 font-weight-bold font-color">
+                                            Endereço:
+                                        </div>
+                                        <div class="h6 mb-0 font-weight-bold font-price">
+                                            Disponibilidade:
+                                        </div>
+                                        <div class="h6 mb-0 font-weight-bold font-color">
+                                            Veículo compativel & Disponibilidade
+                                        </div>
+                                        <div class="h6 mb-0 font-weight-bold font-price" id="preco">
+                                            Preço:
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <a href="#" class="btn btn-primary btn-user btn-block btn-padding">Alugar</a>
+                                        <input hidden value="${anuncio.id}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Fim Conteúdo -->
 
