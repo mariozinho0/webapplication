@@ -186,6 +186,10 @@ ALTER TABLE veiculo
 ALTER TABLE veiculo
     ADD CONSTRAINT ck_categoria_veiculo CHECK (categoria IN ('HATCH', 'SEDAN', 'PERUA', 'SUV', 'PICAPE'));
 
+-- CHECK APROVACAO
+ALTER TABLE veiculo
+    ADD CONSTRAINT ck_aprovacao_veiculo CHECK (aprovacao IN ('APROVADO', 'NEGADO', 'AGUARDANDO'));
+
 -- CHECK TIPO
 ALTER TABLE veiculo
     ADD CONSTRAINT ck_veiculo_veiculo CHECK (veiculo IN ('CARRO', 'MOTO'));
