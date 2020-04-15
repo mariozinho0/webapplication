@@ -8,7 +8,7 @@ import java.util.Calendar;
 
 @Entity
 @Table(name = "registro")
-public class Registro {
+public class Registro { //TODO COLOCAR ANOTACOES DO LOMBOK
 
     //Atributos
 

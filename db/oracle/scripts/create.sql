@@ -267,7 +267,7 @@ ALTER TABLE agendamento
 
 -- UNIQUE ID ANUNCIO
 ALTER TABLE agendamento
-    ADD CONSTRAINT uq_id_anuncio UNIQUE (id_anuncio);
+    ADD CONSTRAINT uq_id_anuncio_agendamento UNIQUE (id_anuncio); -- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- CHAVE ESTRANGEIRA
 ALTER TABLE agendamento
@@ -304,7 +304,7 @@ ALTER TABLE registro
 
 -- UNIQUE ID ANUNCIO
 ALTER TABLE registro
-    ADD CONSTRAINT uq_id_anuncio UNIQUE (id_agendamento);
+    ADD CONSTRAINT uq_id_anuncio_registro UNIQUE (id_agendamento); -- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- CHAVE ESTRANGEIRA
 ALTER TABLE registro
@@ -312,11 +312,11 @@ ALTER TABLE registro
 
 -- CHECK AVALIACAO
 ALTER TABLE registro
-    ADD CONSTRAINT ck_avaliacao CHECK (avaliacao BETWEEN 1 AND 5);
+    ADD CONSTRAINT ck_avaliacao_registro CHECK (avaliacao BETWEEN 1 AND 5); -- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- CHECK PAGAMENTO
 ALTER TABLE registro
-    ADD CONSTRAINT ck_pagamento CHECK (pagamento IN ('CARTAO', 'DINHEIRO'));
+    ADD CONSTRAINT ck_pagamento_registro CHECK (pagamento IN ('CARTAO', 'DINHEIRO')); -- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- SEQUENCE REGISTRO
 CREATE SEQUENCE registro_seq START WITH 1 INCREMENT BY 1;
