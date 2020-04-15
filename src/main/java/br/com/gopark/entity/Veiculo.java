@@ -61,11 +61,11 @@ public class Veiculo {
     private String foto;
 
     /*Anotação que define as características da coluna*/
-    @Column(name = "habilitacao" length = 120, unique = true)
+    @Column(name = "habilitacao", length = 120, unique = true)
     private String habilitacao;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = aprovacao, length = 10)
+    @Column(name = "aprovacao", length = 10)
     private Aprovacao aprovacao;
 
     /*Anotação que indica o uso de uma Enum e seu tipo de valor*/
