@@ -22,21 +22,30 @@ INSERT INTO cartao (id, id_usuario, numero, validade, descricao, seguranca, resp
 VALUES (cartao_seq.nextval, 1, 1234567890123456, 1124, 'bradesco', 123, 'JOAO DA SILVA');
 
 -- INSERT INTO VEICULO
-INSERT INTO veiculo (id, id_usuario, modelo, marca, placa, cor, categoria, documento, foto, habilitacao, tipo)
-VALUES (veiculo_seq.nextval, 1, 'CHEVETTE', 'CHEVROLET', 'ABC1234', 'VINHO', 'HATCH',
+INSERT INTO veiculo (id, id_usuario, modelo, marca, placa, ano, cor, categoria, documento, foto, habilitacao, aprovacao,
+                     veiculo)
+VALUES (veiculo_seq.nextval, 1, 'CHEVETTE', 'CHEVROLET', 'ABC1234', 2008, 'VINHO', 'HATCH',
         'localhost:8080/veiculo/documento/1.jpg', 'localhost:8080/veiculo/foto/1.jpg',
-        'localhost:8080/veiculo/habilitacao/1.jpg', 'CARRO');
+        'localhost:8080/veiculo/habilitacao/1.jpg', 'APROVADO', 'CARRO');
 
 -- INSERT INTO ANUNCIO
 INSERT INTO anuncio
-(id, id_usuario, id_endereco, preco, vagas, descricao, categoria, modalidade, expiracao, disponibilidade, dimensoes, foto, data)
-VALUES (anuncio_seq.nextval, 1, 1, 10.00, 1, 'Garage', 'HATCH', 'DIA', '23/02/2022', 'TOTAL', '10x20', 'localhost:8080/gopark/foto.jpg', SYSDATE);
+(id, id_usuario, id_endereco, preco, vagas, descricao, categoria, modalidade, expiracao, disponibilidade, dimensoes,
+ foto, data)
+VALUES (anuncio_seq.nextval, 1, 1, 10.00, 1, 'Garage', 'HATCH', 'DIA', '23/02/2022', 'TOTAL', '10x20',
+        'localhost:8080/gopark/foto.jpg', SYSDATE);
 
 -- INSERT INTO ANUNCIO
 INSERT INTO anuncio
-(id, id_usuario, id_endereco, preco, vagas, descricao, categoria, modalidade, expiracao, disponibilidade, dimensoes, foto, data)
-VALUES (anuncio_seq.nextval, 1, 2, 25.00, 2, 'Casa', 'SEDAN', 'DIA', '23/02/2022', 'TOTAL', '30x15', 'localhost:8080/gopark/foto2.jpg', SYSDATE);
+(id, id_usuario, id_endereco, preco, vagas, descricao, categoria, modalidade, expiracao, disponibilidade, dimensoes,
+ foto, data)
+VALUES (anuncio_seq.nextval, 1, 2, 25.00, 2, 'Casa', 'SEDAN', 'DIA', '23/02/2022', 'TOTAL', '30x15',
+        'localhost:8080/gopark/foto2.jpg', SYSDATE);
 
--- INSERT INTO SERVICO
--- INSERT INTO servico (id, id_veiculo, id_anuncio, avaliacao, preco, entrada, saida, pagamento)
--- VALUES (servico_seq.nextval, 1, 1, 5, 10.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'CARTAO');
+-- INSERT INTO AGENDAMENTO
+INSERT INTO agendamento (id, id_veiculo, id_anuncio, data, status)
+VALUES (agendamento_seq.nextval, 1, 1, SYSDATE, 'AGENDADO');
+
+-- INSERT INTO REGISTRO
+INSERT INTO registro (id, id_agendamento, avaliacao, total, pagamento, entrada, saida)
+values (registro_seq.nextval, 1, 5, 12.50, 'CARTAO', SYSDATE, SYSDATE);

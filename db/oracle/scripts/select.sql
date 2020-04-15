@@ -24,6 +24,10 @@ FROM veiculo;
 SELECT *
 FROM anuncio;
 
--- SELECT ALL SERVICO
+-- SELECT ALL AGENDAMENTO
 SELECT *
-FROM servico;
+FROM agendamento;
+
+-- SELECT ALL REGISTRO
+SELECT *
+FROM registro;
