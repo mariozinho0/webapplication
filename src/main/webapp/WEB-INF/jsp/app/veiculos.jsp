@@ -55,14 +55,42 @@
 
                 <!-- Início Conteúdo -->
 
-                LISTAR CONTEUDO
+                <div class="row">
 
-                <a href="${s:mvcUrl('veiculo.editform').build()}"
-                   class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
-                <a href="${s:mvcUrl('veiculo.cadastro').build()}"
-                   class="btn btn-danger btn-user btn-block btn-padding">Cadastrar</a>
-                <a href="${s:mvcUrl('veiculo.excluir').build()}"
-                   class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
+                        <div class="col-xl-4 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body card-body-margin">
+                                    <div class="row no-gutters align-items-center">
+                                        <img class="img-anuncio" src="img/estac02.jpeg">
+                                        <div class="col mr-2 home-padding">
+                                            <div class="h6 mb-0 font-weight-bold font-color">Modelo: <b class="font-price">INSERIR DADOS AQUI!</b> </div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Marca: <b class="font-price">INSERIR DADOS AQUI!</b> </div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Categoria: <b class="font-price">INSERIR DADOS AQUI!</b> </div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Ano: <b class="font-price">INSERIR DADOS AQUI!</b> </div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Placa: <b class="font-price">INSERIR DADOS AQUI!</b> </div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Cor: <b class="font-price">INSERIR DADOS AQUI!</b> </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a href="#" class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
+                                            <a href="#" class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body card-body-margin">
+                                <div class="row no-gutters align-items-center">
+                                    <a href="${s:mvcUrl('veiculo.cadastro').build()}" class="btn btn-primary btn-user btn-block btn-padding">Adicionar Veículo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
 
                 <!-- Fim Conteúdo -->
 
