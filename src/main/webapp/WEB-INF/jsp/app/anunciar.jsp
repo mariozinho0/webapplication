@@ -22,7 +22,8 @@
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
     <!-- Latest compiled and minified CSS -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -103,7 +104,7 @@
                                                          path="endereco.estado">
                                                 <!-- TODO VALIDAÇÃO DO ESTADO EM BRANCO -->
                                                 <form:option
-                                                             value="">Selecione o Estado</form:option>
+                                                        value="">Selecione o Estado</form:option>
                                                 <form:option value="AC">Acre</form:option>
                                                 <form:option value="AL">Alagoas</form:option>
                                                 <form:option value="AP">Amapá</form:option>
@@ -145,7 +146,7 @@
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <form:select class="form-control estados" name="categoria" path="categoria">
                                                 <form:option
-                                                             value="">Veículo Compativel:</form:option>
+                                                        value="">Veículo Compativel:</form:option>
                                                 <form:option value="HATCH">Hatch</form:option>
                                                 <form:option value="SEDAN">Sedan</form:option>
                                                 <form:option value="SUV">SUV</form:option>
@@ -197,7 +198,8 @@
                                         <div class="form-group row">
                                             <div class="col-md-6 mb-3 mb-sm-0">
                                                 <!-- ko foreach: {data: multiFileData().dataURLArray, as: 'dataURL'} -->
-                                                <img style="height: 100px; margin: 5px;" class="img-rounded  thumb" data-bind="attr: { src: dataURL }, visible: dataURL">
+                                                <img style="height: 100px; margin: 5px;" class="img-rounded  thumb"
+                                                     data-bind="attr: { src: dataURL }, visible: dataURL">
                                                 <!-- /ko -->
                                                 <div data-bind="ifnot: fileData().dataURL">
                                                     <label class="drag-label">Arraste os Arquivos</label>
@@ -205,10 +207,10 @@
                                             </div>
                                             <div class="col-md-6 mb-3 mb-sm-0">
                                                 <input type="file" multiple data-bind="fileInput: multiFileData, customFileInput: {
-              buttonClass: 'btn btn-primary',
-              fileNameClass: 'disabled form-control',
-              onClear: onClear,
-            }" accept="image/*">
+                                                    buttonClass: 'btn btn-primary',
+                                                    fileNameClass: 'disabled form-control',
+                                                    onClear: onClear,
+                                                }" accept="image/*">
                                             </div>
                                         </div>
                                     </div>
@@ -270,7 +272,7 @@
         // can add "fileTypes" observable here, and it will override the "accept" attribute on the file input
         // fileTypes: ko.observable('.xlsx,image/png,audio/*')
     });
-    viewModel.multiFileData = ko.observable({ dataURLArray: ko.observableArray() });
+    viewModel.multiFileData = ko.observable({dataURLArray: ko.observableArray()});
     viewModel.onClear = function (fileData) {
         if (confirm('Você deseja excluir está imagem?')) {
             fileData.clear && fileData.clear();
@@ -281,7 +283,7 @@
         console.log(ko.toJSON(viewModel));
         debugger;
     };
-    viewModel.onInvalidFileDrop = function(failedFiles) {
+    viewModel.onInvalidFileDrop = function (failedFiles) {
         var fileNames = [];
         for (var i = 0; i < failedFiles.length; i++) {
             fileNames.push(failedFiles[i].name);

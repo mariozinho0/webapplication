@@ -67,20 +67,14 @@
                                         <img class="img-anuncio" src="img/estac03.jpg">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
-                                                <i class="fas fa-map-marker-alt" style="color: red;"></i>
-                                                    ${pesquisa.endereco.cidade} - ${pesquisa.endereco.bairro} - ${pesquisa.endereco.estado}
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold font-color">
-                                                ${pesquisa.endereco.endereco}
-                                            </div>
-                                            <div class="h3 mb-0 font-weight-bold font-price" id="preco">
-                                                <fmt:formatNumber value="${pesquisa.preco}" type="currency"/>
-                                            </div>
+                                                <i class="fas fa-map-marker-alt"
+                                                   style="color: red;"></i> ${pesquisa.endereco.cidade} - ${pesquisa.endereco.bairro} - ${pesquisa.endereco.estado}</div>
+                                            <div class="h5 mb-0 font-weight-bold font-color">${pesquisa.endereco.endereco}, ${pesquisa.endereco.numero}</div>
+                                            <div class="h3 mb-0 font-weight-bold font-price" id="preco"><fmt:formatNumber value="${pesquisa.preco}" type="currency"/></div>
                                         </div>
                                         <div class="col-md-12">
-                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, pesquisa.id).build()}" class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
+                                            <a href="${s:mvcUrl('anuncio-informacoes').build()}" class="btn btn-primary btn-user btn-block btn-padding">Alugar</a>
                                             <input hidden value="${pesquisa.id}">
-                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, pesquisa.id).build()}" class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
                                         </div>
                                     </div>
                                 </div>
