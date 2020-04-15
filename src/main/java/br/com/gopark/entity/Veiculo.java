@@ -110,11 +110,12 @@ public class Veiculo {
 
     }
 
-
-    //Getters e Setters
-
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getModelo() {
@@ -125,12 +126,28 @@ public class Veiculo {
         this.modelo = modelo;
     }
 
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+
     public String getPlaca() {
         return placa;
     }
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
     }
 
     public String getCor() {
@@ -173,13 +190,29 @@ public class Veiculo {
         this.habilitacao = habilitacao;
     }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public Aprovacao getAprovacao() {
+        return aprovacao;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public void setAprovacao(Aprovacao aprovacao) {
+        this.aprovacao = aprovacao;
+    }
+
+    public TipoVeiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(TipoVeiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public List<Agendamento> getAgendamentos() {
         return agendamentos;
@@ -188,5 +221,4 @@ public class Veiculo {
     public void setAgendamentos(List<Agendamento> agendamentos) {
         this.agendamentos = agendamentos;
     }
-
 }
