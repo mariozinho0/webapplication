@@ -1,8 +1,11 @@
 package br.com.gopark.controller;
 
 import br.com.gopark.dao.VeiculoDAO;
+import br.com.gopark.entity.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,31 +16,66 @@ public class VeiculoController {
     @Autowired
     private VeiculoDAO veiculoDAO;
 
-    @RequestMapping(value = "veiculos", name = "veiculo.listar")
+    @RequestMapping(value = "veiculos", method = RequestMethod.GET, name = "veiculo.listar")
     public ModelAndView listar() {
 
         return new ModelAndView("app/veiculos").addObject("veiculos", veiculoDAO.getAll());
 
     }
 
-    @RequestMapping(value = "editar-veiculo", name = "veiculo.editform")
-    public String editar() {
 
-        return "app/veiculos-editar";
+    @RequestMapping(value = "editar-veiculo/{id}", method = RequestMethod.GET, name = "veiculo.editform")
+    public ModelAndView editForm(@PathVariable("id") Integer id, Veiculo veiculo) {
 
-    }
-
-    @RequestMapping(value = "/cadastro-veiculo", name = "veiculo.cadastro")
-    public String cadastrar() {
-
-        return "app/veiculos-cadastro";
+        return new ModelAndView("app/veiculos-editar").addObject("veiculo", veiculoDAO.select(id));
 
     }
 
-    @RequestMapping(value = "/excluir", name = "veiculo.excluir")
-    public String excluir() {
+    @Transactional
+    @RequestMapping(value = "veiculo-editado", name = "veiculo.editar")
+    public ModelAndView editar(Veiculo veiculo) {
 
-        return "index";
+        veiculoDAO.update(veiculo);
+
+        return new ModelAndView("redirect:veiculos");
+
+    }
+
+
+    @RequestMapping(value = "cadastro-veiculo", name = "veiculo.cadastro")
+    public ModelAndView cadastro() {
+
+        return new ModelAndView("app/veiculos-cadastro");
+
+    }
+
+
+    @Transactional
+    @RequestMapping(value = "cadastrar-veiculo", method = RequestMethod.POST, name = "veiculo.cadastrar")
+    public ModelAndView cadastrar(Veiculo veiculo) {
+
+        veiculoDAO.insert(veiculo);
+
+        return new ModelAndView("redirect:veiculos");
+
+    }
+
+
+    @Transactional
+    @RequestMapping(value = "excluir-veiculo/{id}", name = "veiculo.excluir")
+    public ModelAndView excluir(@PathVariable Integer id, Veiculo veiculo) {
+
+        try {
+
+            veiculoDAO.delete(id);
+
+        } catch (Exception e) {
+
+            System.out.println("Erro"); //TODO ARRUMAR ISSO COM SLF4J
+
+        }
+
+        return new ModelAndView("redirect:/");
 
     }
 

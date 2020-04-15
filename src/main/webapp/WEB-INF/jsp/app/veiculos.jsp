@@ -72,8 +72,8 @@
                                             <div class="h6 mb-0 font-weight-bold font-color">Cor: <b class="font-price">${veiculo.cor}</b> </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <a href="${s:mvcUrl('veiculo.editform').build()}" class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
-                                            <a href="${s:mvcUrl('veiculo.excluir').build()}" class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
+                                            <a href="${s:mvcUrl('veiculo.editform').arg(0, veiculo.id).build()}" class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
+                                            <a href="${s:mvcUrl('veiculo.excluir').arg(0, veiculo.id).build()}" class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
                                         </div>
                                     </div>
                                 </div>

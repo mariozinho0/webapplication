@@ -18,7 +18,7 @@
     <title>GoPark - Editar Veículo</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
 
@@ -27,9 +27,9 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
     <!-- Latest compiled and minified CSS -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/styles.css">
-    <link type="text/css" rel="stylesheet" href="css/knockout-file-bindings.css">
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/knockout-file-bindings.css">
 
 </head>
 
@@ -57,93 +57,95 @@
 
                 <!-- Início Conteúdo -->
 
+                <%--@elvariable id="veiculo" type="spring"--%>
+                <form:form modelAttribute="veiculo" method="POST" action="${s:mvcUrl('veiculo.editar').build()}" id="editar">
                 <div class="row">
                     <div class="col-lg-6 mb-4">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <div class="row">
                                     <h4 class="col-sm-9 mb-3 mb-sm-0 font-weight-bold text-primary">Editar Veículo</h4>
-                                    <input type="number" name="id" class="col-sm-3 mb-3 mb-sm-0 form-control" path="id" readonly="true"/>
+                                    <form:input type="number" name="id" class="col-sm-3 mb-3 mb-sm-0 form-control" path="id" readonly="true"/>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <!--MARCAS-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <select class="form-control estados" id="marca" name="marca">
-                                            <option value="">Selecione a Marca</option>
-                                            <option value="GM">Chevrolet</option>
-                                            <option value="VW">Volkswagen</option>
-                                            <option value="FIAT">Fiat</option>
-                                            <option value="HYUNDAI">Hyundai</option>
-                                            <option value="NISSAN">Nissan</option>
-                                            <option value="RENAULT">Renault</option>
-                                            <option value="FORD">Ford</option>
-                                            <option value="TOYOTA">Toyota</option>
-                                            <option value="JEEP">Jeep</option>
-                                            <option value="HONDA">Honda</option>
-                                            <option value="CITROEN">Citroën</option>
-                                            <option value="MITSUBISHI">Mitsubishi</option>
-                                            <option value="PEUGEOT">Peugeot</option>
-                                            <option value="CHERY">Chery</option>
-                                            <option value="BMW">BMW</option>
-                                            <option value="MERCEDES">Mercedes-Benz</option>
-                                            <option value="KIA">Kia</option>
-                                            <option value="AUDI">Audi</option>
-                                            <option value="VOLVO">Volvo</option>
-                                            <option value="LANDROVER">Land Rover</option>
-                                            <option value="AIMA">Aima</option>
-                                            <option value="Avelloz">Avelloz</option>
-                                            <option value="Bravax">Bravax</option>
-                                            <option value="BRP">BRP</option>
-                                            <option value="Bull">Bull</option>
-                                            <option value="Dafra">Dafra</option>
-                                            <option value="Dayang">Dayang</option>
-                                            <option value="Ducati">Ducati</option>
-                                            <option value="Haojue">Haojue</option>
-                                            <option value="Harley-Davidson">Harley-Davidson</option>
-                                            <option value="Husqvarna">Husqvarna</option>
-                                            <option value="Indian">Indian</option>
-                                            <option value="Iros">Iros</option>
-                                            <option value="Jonny">Jonny</option>
-                                            <option value="Kasinski">Kasinski</option>
-                                            <option value="Kawasaki">Kawasaki</option>
-                                            <option value="KTM">KTM</option>
-                                            <option value="Kymco">Kymco</option>
-                                            <option value="Motocar">Motocar</option>
-                                            <option value="MV Agusta">MV Agusta</option>
-                                            <option value="Piaggio">Piaggio</option>
-                                            <option value="Royal Enfield">Royal Enfield</option>
-                                            <option value="Shineray">Shineray</option>
-                                            <option value="Suzuki">Suzuki</option>
-                                            <option value="SWM">SWM</option>
-                                            <option value="Traxx">Traxx</option>
-                                            <option value="Triumph">Triumph</option>
-                                            <option value="Vespa">Vespa</option>
-                                            <option value="Wuyang">Wuyang</option>
-                                            <option value="Yamaha">Yamaha</option>
-                                        </select>
+                                        <form:select path="marca" class="form-control estados" id="marca" name="marca">
+                                            <form:option value="">Selecione a Marca</form:option>
+                                            <form:option value="CHEVROLET">Chevrolet</form:option>
+                                            <form:option value="VOLKSWAGEN">Volkswagen</form:option>
+                                            <form:option value="FIAT">Fiat</form:option>
+                                            <form:option value="HYUNDAI">Hyundai</form:option>
+                                            <form:option value="NISSAN">Nissan</form:option>
+                                            <form:option value="RENAULT">Renault</form:option>
+                                            <form:option value="FORD">Ford</form:option>
+                                            <form:option value="TOYOTA">Toyota</form:option>
+                                            <form:option value="JEEP">Jeep</form:option>
+                                            <form:option value="HONDA">Honda</form:option>
+                                            <form:option value="CITROEN">Citroën</form:option>
+                                            <form:option value="MITSUBISHI">Mitsubishi</form:option>
+                                            <form:option value="PEUGEOT">Peugeot</form:option>
+                                            <form:option value="CHERY">Chery</form:option>
+                                            <form:option value="BMW">BMW</form:option>
+                                            <form:option value="MERCEDES">Mercedes-Benz</form:option>
+                                            <form:option value="KIA">Kia</form:option>
+                                            <form:option value="AUDI">Audi</form:option>
+                                            <form:option value="VOLVO">Volvo</form:option>
+                                            <form:option value="LANDROVER">Land Rover</form:option>
+                                            <form:option value="AIMA">Aima</form:option>
+                                            <form:option value="AVELLOZ">Avelloz</form:option>
+                                            <form:option value="BRAVAX">Bravax</form:option>
+                                            <form:option value="BRP">BRP</form:option>
+                                            <form:option value="BULL">Bull</form:option>
+                                            <form:option value="DAFRA">Dafra</form:option>
+                                            <form:option value="DAYANG">Dayang</form:option>
+                                            <form:option value="DUCATI">Ducati</form:option>
+                                            <form:option value="HAOJUE">Haojue</form:option>
+                                            <form:option value="HARLEYDAVIDSON">Harley-Davidson</form:option>
+                                            <form:option value="HUSQVARNA">Husqvarna</form:option>
+                                            <form:option value="INDIAN">Indian</form:option>
+                                            <form:option value="IROS">Iros</form:option>
+                                            <form:option value="JONNY">Jonny</form:option>
+                                            <form:option value="KASINSKI">Kasinski</form:option>
+                                            <form:option value="KAWASAKI">Kawasaki</form:option>
+                                            <form:option value="KTM">KTM</form:option>
+                                            <form:option value="KYMCO">Kymco</form:option>
+                                            <form:option value="MOTOCAR">Motocar</form:option>
+                                            <form:option value="MVAGUSTA">MV Agusta</form:option>
+                                            <form:option value="PIAGGIO">Piaggio</form:option>
+                                            <form:option value="ROYALENFIELD">Royal Enfield</form:option>
+                                            <form:option value="SHINERAY">Shineray</form:option>
+                                            <form:option value="SUZUKI">Suzuki</form:option>
+                                            <form:option value="SWM">SWM</form:option>
+                                            <form:option value="TRAXX">Traxx</form:option>
+                                            <form:option value="TRIUMPH">Triumph</form:option>
+                                            <form:option value="VESPA">Vespa</form:option>
+                                            <form:option value="WUYANG">Wuyang</form:option>
+                                            <form:option value="YAMAHA">Yamaha</form:option>
+                                        </form:select>
                                     </div>
 
                                     <!-- TIPO DE VEÍCULO -->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <select class="form-control estados" id="tipo" name="tipo">
-                                            <option value="">Selecione o Tipo</option>
-                                            <option value="MOTO">Moto</option>
-                                            <option value="CARRO">Carro</option>
-                                        </select>
+                                        <form:select path="veiculo" class="form-control estados" id="veiculo" name="veiculo">
+                                            <form:option value="">Selecione o Tipo</form:option>
+                                            <form:option value="MOTO">Moto</form:option>
+                                            <form:option value="CARRO">Carro</form:option>
+                                        </form:select>
                                     </div>
 
                                     <!--CATEGORIA VEICULO-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <select class="form-control estados" name="categoria">
-                                            <option value="">Categoria</option>
-                                            <option value="HATCH">Hatch</option>
-                                            <option value="SEDAN">Sedan</option>
-                                            <option value="SUV">SUV</option>
-                                            <option value="PERUA">Perua</option>
-                                            <option value="PICAPE">Picape</option>
-                                        </select>
+                                        <form:select path="categoria" class="form-control estados" name="categoria">
+                                            <form:option value="">Categoria</form:option>
+                                            <form:option value="HATCH">Hatch</form:option>
+                                            <form:option value="SEDAN">Sedan</form:option>
+                                            <form:option value="SUV">SUV</form:option>
+                                            <form:option value="PERUA">Perua</form:option>
+                                            <form:option value="PICAPE">Picape</form:option>
+                                        </form:select>
                                     </div>
 
                                 </div>
@@ -152,17 +154,17 @@
                                     <!-- ANO VEICULO -->
 
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <input type="number" class="form-control form-control-user estados" placeholder="Ano do Veículo"/>
+                                        <form:input type="number" class="form-control form-control-user estados" placeholder="Ano do Veículo" path="ano" name="ano"/>
                                     </div>
 
                                     <!-- PLACA -->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user estados" placeholder="Placa do Veículo"/>
+                                        <form:input class="form-control form-control-user estados" placeholder="Placa do Veículo" name="placa" path="placa"/>
                                     </div>
 
                                     <!-- COR DO VEICULO -->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user estados" placeholder="Cor do Veiculo"/>
+                                        <form:input class="form-control form-control-user estados" placeholder="Cor do Veiculo" name="cor" path="cor"/>
                                     </div>
 
                                 </div>
@@ -196,6 +198,7 @@
                         </div>
                     </div>
                 </div>
+                </form:form>
 
 
                 <!-- Fim Conteúdo -->
@@ -225,18 +228,18 @@
 <c:import url="../component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js'></script>
-<script src="js/knockout-file-bindings.js"></script>
+<script src="${pageContext.request.contextPath}/js/knockout-file-bindings.js"></script>
 
 <!--Upload imagem-->
 <script>

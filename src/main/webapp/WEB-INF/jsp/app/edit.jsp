@@ -189,7 +189,7 @@
                                     </div>
                                     <!--Preço-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <form:input type="text" name="preco" class="form-control form-control-user"
+                                        <form:input name="preco" class="form-control form-control-user"
                                                     placeholder="Preço"
                                                     id="preco"
                                                     path="preco"/>

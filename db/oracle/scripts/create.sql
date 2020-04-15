@@ -44,7 +44,6 @@ ALTER TABLE usuario
 CREATE SEQUENCE usuario_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA ENDERECO
 CREATE TABLE endereco
 (
@@ -87,7 +86,6 @@ ALTER TABLE endereco
 CREATE SEQUENCE endereco_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA BANCO
 CREATE TABLE banco
 (
@@ -115,7 +113,6 @@ ALTER TABLE banco
 CREATE SEQUENCE banco_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA CARTAO
 CREATE TABLE cartao
 (
@@ -140,7 +137,6 @@ ALTER TABLE cartao
 CREATE SEQUENCE cartao_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA VEICULO
 CREATE TABLE veiculo
 (
@@ -156,7 +152,7 @@ CREATE TABLE veiculo
     foto        VARCHAR(120),
     habilitacao VARCHAR(120),
     aprovacao   VARCHAR(10),
-    veiculo     VARCHAR(5) NOT NULL
+    veiculo     VARCHAR(5)  NOT NULL
 );
 
 -- CHAVE PRIMÁRIA VEICULO
@@ -179,8 +175,15 @@ ALTER TABLE veiculo
 
 ALTER TABLE veiculo
     ADD CONSTRAINT ck_marca_veiculo CHECK (marca IN
-                                           ('CHEVROLET', 'FIAT', 'FORD', 'HYUNDAI', 'TOYOTA', 'CHERY', 'BMW', 'YAHAMA',
-                                            'HONDA'));
+                                           ('CHEVROLET', 'VOLKSWAGEN', 'FIAT', 'HYUNDAI', 'NISSAN', 'RENAULT', 'FORD',
+                                            'TOYOTA', 'JEEP', 'HONDA', 'CITROEN', 'MITSUBISHI', 'PEUGEOT', 'CHERY',
+                                            'BMW', 'MERCEDES', 'KIA', 'AUDI', 'VOLVO', 'LANDROVER', 'AIMA', 'AVELLOZ',
+                                            'BRAVAX', 'BRP', 'BULL', 'DAFRA', 'DAYANG', 'DUCATI', 'HAOJUE',
+                                            'HARLEYDAVIDSON', 'HUSQVARNA', 'INDIAN', 'IROS', 'JONNY', 'KASINSKI',
+                                            'KAWASAKI', 'KTM', 'KYMCO', 'MOTOCAR', 'MVAGUSTA', 'PIAGGIO',
+                                            'ROYALENFIELD', 'SHINERAY', 'SUZUKI', 'SWM', 'TRAXX', 'TRIUMPH', 'VESPA',
+                                            'WUYANG', 'YAMAHA'
+                                               ));
 
 -- CHECK CATEGORIA
 ALTER TABLE veiculo
@@ -198,7 +201,6 @@ ALTER TABLE veiculo
 CREATE SEQUENCE veiculo_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA ANUNCIO
 CREATE TABLE anuncio
 (                                           -- TODO ARRUMAR CAMPOS
@@ -211,7 +213,7 @@ CREATE TABLE anuncio
     categoria       VARCHAR(15),            -- IDEIA: Só aceita na garagem esse tipo de categoria de carro (MULTIPLAS CATEGORIA NOVA Tabela)
     modalidade      VARCHAR(15)   NOT NULL,
     expiracao       DATE,
-    disponibilidade VARCHAR(15)   NOT NULL, -- TIRAR ISSO DAQUI E COLOCAR EM OUTRA TABELA
+    disponibilidade VARCHAR(15)   NOT NULL, -- TIRAR ISSO DAQUI E COLOCAR EM OUTRA TABELA POR PODER SER MULTIPLO
     dimensoes       VARCHAR(8)    NOT NULL,
     foto            VARCHAR(120),           -- TODO NOVA TABELA P/ FOTOS (MULTIPLICIDADE)
     data            DATE          NOT NULL
@@ -245,7 +247,6 @@ ALTER TABLE anuncio
 CREATE SEQUENCE anuncio_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA AGENDAMENTO
 CREATE TABLE agendamento
 (
@@ -267,7 +268,8 @@ ALTER TABLE agendamento
 
 -- UNIQUE ID ANUNCIO
 ALTER TABLE agendamento
-    ADD CONSTRAINT uq_id_anuncio_agendamento UNIQUE (id_anuncio); -- TODO ARRUMAR NOME DA CONSTRAINT
+    ADD CONSTRAINT uq_id_anuncio_agendamento UNIQUE (id_anuncio);
+-- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- CHAVE ESTRANGEIRA
 ALTER TABLE agendamento
@@ -283,7 +285,6 @@ ALTER TABLE agendamento
 
 -- SEQUENCE AGENDAMENTO
 CREATE SEQUENCE agendamento_seq START WITH 1 INCREMENT BY 1;
-
 
 
 -- TABELA REGISTRO
@@ -304,7 +305,8 @@ ALTER TABLE registro
 
 -- UNIQUE ID ANUNCIO
 ALTER TABLE registro
-    ADD CONSTRAINT uq_id_anuncio_registro UNIQUE (id_agendamento); -- TODO ARRUMAR NOME DA CONSTRAINT
+    ADD CONSTRAINT uq_id_anuncio_registro UNIQUE (id_agendamento);
+-- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- CHAVE ESTRANGEIRA
 ALTER TABLE registro
@@ -312,11 +314,13 @@ ALTER TABLE registro
 
 -- CHECK AVALIACAO
 ALTER TABLE registro
-    ADD CONSTRAINT ck_avaliacao_registro CHECK (avaliacao BETWEEN 1 AND 5); -- TODO ARRUMAR NOME DA CONSTRAINT
+    ADD CONSTRAINT ck_avaliacao_registro CHECK (avaliacao BETWEEN 1 AND 5);
+-- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- CHECK PAGAMENTO
 ALTER TABLE registro
-    ADD CONSTRAINT ck_pagamento_registro CHECK (pagamento IN ('CARTAO', 'DINHEIRO')); -- TODO ARRUMAR NOME DA CONSTRAINT
+    ADD CONSTRAINT ck_pagamento_registro CHECK (pagamento IN ('CARTAO', 'DINHEIRO'));
+-- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- SEQUENCE REGISTRO
 CREATE SEQUENCE registro_seq START WITH 1 INCREMENT BY 1;
