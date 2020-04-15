@@ -1,16 +1,22 @@
 package br.com.gopark.controller;
 
+import br.com.gopark.dao.VeiculoDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class VeiculoController {
 
-    @RequestMapping(value = "veiculos", name = "veiculo.listar")
-    public String listar() {
+    @Autowired
+    private VeiculoDAO veiculoDAO;
 
-        return "app/veiculos";
+    @RequestMapping(value = "veiculos", name = "veiculo.listar")
+    public ModelAndView listar() {
+
+        return new ModelAndView("app/veiculos").addObject("veiculos", veiculoDAO.getAll());
 
     }
 
