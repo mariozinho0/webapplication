@@ -1,6 +1,6 @@
 package br.com.gopark.dao;
 
-import br.com.gopark.entity.Servico;
+import br.com.gopark.entity.Agendamento;
 
-public interface ServicoDAO extends GenericDAO<Servico, Integer> {
+public interface ServicoDAO extends GenericDAO<Agendamento, Integer> {
 }

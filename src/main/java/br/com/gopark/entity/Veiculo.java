@@ -1,6 +1,8 @@
 package br.com.gopark.entity;
 
+import br.com.gopark.enums.Aprovacao;
 import br.com.gopark.enums.Categoria;
+import br.com.gopark.enums.Marca;
 import br.com.gopark.enums.TipoVeiculo;
 
 import javax.persistence.*;
@@ -28,13 +30,17 @@ public class Veiculo {
     @Column(name = "modelo", nullable = false, length = 20)
     private String modelo;
 
+    @Enumerated(EnumType.STRING)
     /*Anotação que define as características da coluna*/
     @Column(name = "marca", nullable = false, length = 15)
-    private String marca;
+    private Marca marca;
 
     /*Anotação que define as características da coluna*/
     @Column(name = "placa", nullable = false, length = 7)
     private String placa;
+
+    @Column(name = "ano", nullable = false, length = 4)
+    private String ano;
 
     /*Anotação que define as características da coluna*/
     @Column(name = "cor", nullable = false, length = 15)
@@ -47,7 +53,7 @@ public class Veiculo {
     private Categoria categoria;
 
     /*Anotação que define as características da coluna*/
-    @Column(name = "documento", nullable = false, length = 120, unique = true)
+    @Column(name = "documento", length = 120, unique = true)
     private String documento;
 
     /*Anotação que define as características da coluna*/
@@ -55,14 +61,18 @@ public class Veiculo {
     private String foto;
 
     /*Anotação que define as características da coluna*/
-    @Column(name = "habilitacao", nullable = false, length = 120, unique = true)
+    @Column(name = "habilitacao" length = 120, unique = true)
     private String habilitacao;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = aprovacao, length = 10)
+    private Aprovacao aprovacao;
 
     /*Anotação que indica o uso de uma Enum e seu tipo de valor*/
     @Enumerated(EnumType.STRING)
     /*Anotação que define as características da coluna*/
-    @Column(name = "tipo", nullable = false, length = 15)
-    private TipoVeiculo tipo;
+    @Column(name = "veiculo", nullable = false, length = 5)
+    private TipoVeiculo veiculo;
 
 
     //Relacionamentos
@@ -82,36 +92,11 @@ public class Veiculo {
     - 1º termo (antes do "To") representa a cardinalidade da entidade atual
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "veiculo")
-    private List<Servico> servicos;
+    private List<Agendamento> agendamentos;
 
 
     //TODO ARRUMAR CONSTRUTORES MAP BIDIRECIONAL
     // Construtores
-
-    /*Construtor com todos atributos*/
-    public Veiculo(String modelo, String marca, String placa, String cor, Categoria categoria, String documento, String foto, String habilitacao, TipoVeiculo tipoVeiculo) {
-        this.modelo = modelo;
-        this.marca = marca;
-        this.placa = placa;
-        this.cor = cor;
-        this.categoria = categoria;
-        this.documento = documento;
-        this.foto = foto;
-        this.habilitacao = habilitacao;
-        this.tipo = tipoVeiculo;
-    }
-
-    /*Contrutor só com os atributos necessários*/
-    public Veiculo(String modelo, String marca, String placa, String cor, Categoria categoria, String documento, String habilitacao, TipoVeiculo tipoVeiculo) {
-        this.modelo = modelo;
-        this.marca = marca;
-        this.placa = placa;
-        this.cor = cor;
-        this.categoria = categoria;
-        this.documento = documento;
-        this.habilitacao = habilitacao;
-        this.tipo = tipoVeiculo;
-    }
 
     /*Construtor só com id*/
     public Veiculo(Integer id) {
@@ -138,14 +123,6 @@ public class Veiculo {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public String getPlaca() {
@@ -196,14 +173,6 @@ public class Veiculo {
         this.habilitacao = habilitacao;
     }
 
-    public TipoVeiculo getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoVeiculo tipoVeiculo) {
-        this.tipo = tipoVeiculo;
-    }
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -212,12 +181,12 @@ public class Veiculo {
 		this.usuario = usuario;
 	}
 
-    public List<Servico> getServicos() {
-        return servicos;
+    public List<Agendamento> getAgendamentos() {
+        return agendamentos;
     }
 
-    public void setServicos(List<Servico> servicos) {
-        this.servicos = servicos;
+    public void setAgendamentos(List<Agendamento> agendamentos) {
+        this.agendamentos = agendamentos;
     }
 
 }

@@ -155,8 +155,8 @@ CREATE TABLE veiculo
     documento   VARCHAR(120),         -- TODO PESQUISAR QUAL DOCUMENTO DO CARRO CADASTRAR???
     foto        VARCHAR(120),
     habilitacao VARCHAR(120),
-    aprovacao   VARCHAR(25),
-    veiculo     VARCHAR(15) NOT NULL
+    aprovacao   VARCHAR(10),
+    veiculo     VARCHAR(5) NOT NULL
 );
 
 -- CHAVE PRIMÁRIA VEICULO
@@ -254,7 +254,7 @@ CREATE TABLE agendamento
     id_anuncio NUMBER(8) NOT NULL,
     --     id_cartao NUMBER(8) NOT NULL, -- TODO NECESSÁRIO CARTÃO P/ AGENDAR???
     data       DATE      NOT NULL,
-    status     VARCHAR(20)
+    status     VARCHAR(10)
 );
 
 -- CHAVE PRIMÁRIA AGENDAMENTO
