@@ -55,7 +55,14 @@
 
                 <!-- Início Conteúdo -->
 
-                CONTÉUDO
+                LISTAR CONTEUDO
+
+                <a href="${s:mvcUrl('veiculo.editform').build()}"
+                   class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
+                <a href="${s:mvcUrl('veiculo.cadastro').build()}"
+                   class="btn btn-danger btn-user btn-block btn-padding">Cadastrar</a>
+                <a href="${s:mvcUrl('veiculo.excluir').build()}"
+                   class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
 
                 <!-- Fim Conteúdo -->
 

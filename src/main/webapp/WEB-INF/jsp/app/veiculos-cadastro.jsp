@@ -55,7 +55,7 @@
 
                 <!-- Início Conteúdo -->
 
-                CONTÉUDO
+                CONTÉUDO FORM CADASTRO
 
                 <!-- Fim Conteúdo -->
 
