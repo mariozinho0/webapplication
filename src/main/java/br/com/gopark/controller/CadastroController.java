@@ -23,7 +23,7 @@ public class CadastroController {
     }
 
     @Transactional
-    //TODO TENTAR ARRUMAR URL (CADASTRO/CADASTRAR
+    //TODO TENTAR ARRUMAR URL (CADASTRO/CADASTRAR)
     @RequestMapping(value = "cadastrar", name = "cadastro.cadastrar")
     public ModelAndView cadastrar(Usuario usuario) {
 

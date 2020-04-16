@@ -4,6 +4,8 @@ import br.com.gopark.enums.Aprovacao;
 import br.com.gopark.enums.Categoria;
 import br.com.gopark.enums.Marca;
 import br.com.gopark.enums.TipoVeiculo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -90,6 +92,7 @@ public class Veiculo {
     @ManyToOne
     /*Anotação que refencia a coluna da FK*/
     @JoinColumn(name = "id_usuario", updatable = false)
+    @JsonBackReference(value = "usuario")
     private Usuario usuario;
 
 
@@ -99,6 +102,7 @@ public class Veiculo {
     - 1º termo (antes do "To") representa a cardinalidade da entidade atual
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "veiculo")
+    @JsonManagedReference(value = "veiculo")
     private List<Agendamento> agendamentos;
 
 }

@@ -15,7 +15,7 @@ import java.util.Calendar;
 @NoArgsConstructor
 @Entity
 @Table(name = "registro")
-public class Registro { //TODO COLOCAR ANOTACOES DO LOMBOK
+public class Registro {
 
     //Atributos
 

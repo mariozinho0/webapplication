@@ -1,6 +1,8 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Sexo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -94,6 +96,7 @@ public class Usuario {
     - 1º termo (antes do "To") representa a cardinalidade da entidade atual
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference(value = "usuario")
     private List<Veiculo> veiculos;
 
     /*Anotação que especifica o tipo de relacionamento:
