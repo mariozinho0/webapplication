@@ -1,4 +1,4 @@
 package br.com.gopark.resource;
 
-public class AlugarResource {
+public class VeiculoResource {
 }

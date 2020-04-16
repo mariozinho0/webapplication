@@ -1,13 +1,17 @@
 package br.com.gopark.entity;
 
-import br.com.gopark.enums.Pagamento;
 import br.com.gopark.enums.Status;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Calendar;
 
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 /*Anotação que determina que a classe irá mapear uma tabela*/
 @Entity
 /*Anotação responsável pelas características da tabela*/
@@ -59,34 +63,5 @@ public class Agendamento {
 
     @OneToOne(mappedBy = "agendamento")
     private Registro registro;
-
-
-    /*Construtor padrão*/
-    public Agendamento() {
-
-    }
-
-
-    //Getters e Setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public Veiculo getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
-    }
-
-    public Anuncio getAnuncio() {
-        return anuncio;
-    }
-
-    public void setAnuncio(Anuncio anuncio) {
-        this.anuncio = anuncio;
-    }
 
 }

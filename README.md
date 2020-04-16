@@ -9,7 +9,7 @@ Versão Spring Boot do Projeto...
 
 ## JSON
 
-Edições e inserções devem ter como base o seguinte JSON:
+Edições e inserções em **anúncio** devem ter como base o seguinte JSON:
 
 ```json
 {
@@ -36,4 +36,10 @@ Edições e inserções devem ter como base o seguinte JSON:
     "data": "2020-03-29T19:49:44.000+0000",
     "servico": null
 }
+```
+
+Edições e inserções em **veículo** devem ter como base o seguinte JSON:
+
+```json
+//TODO
 ```

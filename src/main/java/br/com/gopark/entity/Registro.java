@@ -1,11 +1,18 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Pagamento;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "registro")
 public class Registro { //TODO COLOCAR ANOTACOES DO LOMBOK
