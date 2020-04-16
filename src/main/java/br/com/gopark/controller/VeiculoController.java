@@ -1,10 +1,13 @@
 package br.com.gopark.controller;
 
+import br.com.gopark.dao.UsuarioDAO;
 import br.com.gopark.dao.VeiculoDAO;
+import br.com.gopark.entity.Usuario;
 import br.com.gopark.entity.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class VeiculoController {
+
+    @Autowired
+    private UsuarioDAO usuarioDAO;
 
     @Autowired
     private VeiculoDAO veiculoDAO;
@@ -43,7 +49,7 @@ public class VeiculoController {
 
 
     @RequestMapping(value = "cadastro-veiculo", name = "veiculo.cadastro")
-    public ModelAndView cadastro() {
+    public ModelAndView cadastro(@ModelAttribute("veiculo") Veiculo veiculo) {
 
         return new ModelAndView("app/veiculos-cadastro");
 
@@ -54,6 +60,9 @@ public class VeiculoController {
     @RequestMapping(value = "cadastrar-veiculo", method = RequestMethod.POST, name = "veiculo.cadastrar")
     public ModelAndView cadastrar(Veiculo veiculo) {
 
+        Usuario usuario = usuarioDAO.select(1);
+
+        veiculo.setUsuario(usuario);
         veiculoDAO.insert(veiculo);
 
         return new ModelAndView("redirect:veiculos");
@@ -75,7 +84,7 @@ public class VeiculoController {
 
         }
 
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:veiculos");
 
     }
 
