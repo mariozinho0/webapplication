@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -27,7 +27,8 @@
 
     <!-- Latest compiled and minified CSS -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="css/knockout-file-bindings.css">
 
 </head>
 
@@ -103,7 +104,7 @@
                                                          path="endereco.estado">
                                                 <!-- TODO VALIDAÇÃO DO ESTADO EM BRANCO -->
                                                 <form:option
-                                                             value="">Selecione o Estado</form:option>
+                                                        value="">Selecione o Estado</form:option>
                                                 <form:option value="AC">Acre</form:option>
                                                 <form:option value="AL">Alagoas</form:option>
                                                 <form:option value="AP">Amapá</form:option>
@@ -145,7 +146,7 @@
                                         <div class="col-sm-4 mb-3 mb-sm-0">
                                             <form:select class="form-control estados" name="categoria" path="categoria">
                                                 <form:option
-                                                             value="">Veículo Compativel:</form:option>
+                                                        value="">Veículo Compativel:</form:option>
                                                 <form:option value="HATCH">Hatch</form:option>
                                                 <form:option value="SEDAN">Sedan</form:option>
                                                 <form:option value="SUV">SUV</form:option>
@@ -190,6 +191,27 @@
                                                 <form:option value="DIA">Dia</form:option>
                                                 <form:option value="MES">Mês</form:option>
                                             </form:select>
+                                        </div>
+                                    </div>
+                                    <!--IMAGEM UPLOAD-->
+                                    <div class="well" data-bind="fileDrag: multiFileData">
+                                        <div class="form-group row">
+                                            <div class="col-md-6 mb-3 mb-sm-0">
+                                                <!-- ko foreach: {data: multiFileData().dataURLArray, as: 'dataURL'} -->
+                                                <img style="height: 100px; margin: 5px;" class="img-rounded  thumb"
+                                                     data-bind="attr: { src: dataURL }, visible: dataURL">
+                                                <!-- /ko -->
+                                                <div data-bind="ifnot: fileData().dataURL">
+                                                    <label class="drag-label">Arraste os Arquivos</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3 mb-sm-0">
+                                                <input type="file" multiple data-bind="fileInput: multiFileData, customFileInput: {
+                                                    buttonClass: 'btn btn-primary',
+                                                    fileNameClass: 'disabled form-control',
+                                                    onClear: onClear,
+                                                }" accept="image/*">
+                                            </div>
                                         </div>
                                     </div>
                                     <!--ENVIAR ANUNCIO-->
@@ -239,6 +261,39 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js'></script>
+<script src="js/knockout-file-bindings.js"></script>
+
+<!--Upload imagem-->
+<script>
+    var viewModel = {};
+    viewModel.fileData = ko.observable({
+        dataURL: ko.observable(),
+        // can add "fileTypes" observable here, and it will override the "accept" attribute on the file input
+        // fileTypes: ko.observable('.xlsx,image/png,audio/*')
+    });
+    viewModel.multiFileData = ko.observable({dataURLArray: ko.observableArray()});
+    viewModel.onClear = function (fileData) {
+        if (confirm('Você deseja excluir está imagem?')) {
+            fileData.clear && fileData.clear();
+        }
+    };
+    viewModel.debug = function () {
+        window.viewModel = viewModel;
+        console.log(ko.toJSON(viewModel));
+        debugger;
+    };
+    viewModel.onInvalidFileDrop = function (failedFiles) {
+        var fileNames = [];
+        for (var i = 0; i < failedFiles.length; i++) {
+            fileNames.push(failedFiles[i].name);
+        }
+        var message = 'Invalid file type: ' + fileNames.join(', ');
+        alert(message)
+        console.error(message);
+    };
+    ko.applyBindings(viewModel);
+</script>
 
 <!-- Masks -->
 <script type="text/javascript">
@@ -254,7 +309,6 @@
     });
 
 </script>
-
 </body>
 
 </html>

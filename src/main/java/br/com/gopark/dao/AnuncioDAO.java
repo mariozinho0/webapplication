@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface AnuncioDAO extends GenericDAO<Anuncio, Integer> {
 
-    public List<Anuncio> getByCidade(String cidade);
+    List<Anuncio> getByCidade(String cidade);
+
+    List<Anuncio> getById(Integer id);
 
 }

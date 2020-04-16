@@ -109,7 +109,7 @@ public class Anuncio {
         - 1º termo (antes do "To") representa a cardinalidade da entidade atual
         - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToOne(mappedBy = "anuncio")
-    private Servico servico;
+    private Agendamento agendamento;
 
 
     //TODO ARRUMAR CONSTRUTORES MAP BIDIRECIONAL
@@ -268,12 +268,12 @@ public class Anuncio {
         this.endereco = endereco;
     }
 
-    public Servico getServico() {
-        return servico;
+    public Agendamento getAgendamento() {
+        return agendamento;
     }
 
-    public void setServico(Servico servico) {
-        this.servico = servico;
+    public void setAgendamento(Agendamento agendamento) {
+        this.agendamento = agendamento;
     }
 
 }

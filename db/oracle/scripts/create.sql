@@ -44,7 +44,6 @@ ALTER TABLE usuario
 CREATE SEQUENCE usuario_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA ENDERECO
 CREATE TABLE endereco
 (
@@ -76,22 +75,26 @@ ALTER TABLE endereco
 ALTER TABLE endereco
     ADD CONSTRAINT uq_comprovante UNIQUE (comprovante);
 
--- TODO CHECK ESTADO???
+-- CHECK ESTADO
+
+ALTER TABLE endereco
+    ADD CONSTRAINT ck_estado CHECK (estado IN
+                                    ('AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA',
+                                     'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'));
 
 -- SEQUENCE ENDERECO
 CREATE SEQUENCE endereco_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA BANCO
 CREATE TABLE banco
 (
-    id         NUMBER(8)   NOT NULL,
-    id_usuario NUMBER(8)   NOT NULL,
-    agencia    NUMBER(4)   NOT NULL,
-    banco      NUMBER(4)   NOT NULL,
-    conta      NUMBER(6)   NOT NULL,
-    tipo       VARCHAR(2)  NOT NULL
+    id         NUMBER(8)  NOT NULL,
+    id_usuario NUMBER(8)  NOT NULL,
+    agencia    NUMBER(4)  NOT NULL,
+    banco      NUMBER(4)  NOT NULL,
+    conta      NUMBER(6)  NOT NULL,
+    tipo       VARCHAR(2) NOT NULL
 );
 
 -- CHAVE PRIMÁRIA BANCO
@@ -108,7 +111,6 @@ ALTER TABLE banco
 
 -- SEQUENCE BANCO
 CREATE SEQUENCE banco_seq START WITH 1 INCREMENT BY 1;
-
 
 
 -- TABELA CARTAO
@@ -135,21 +137,22 @@ ALTER TABLE cartao
 CREATE SEQUENCE cartao_seq START WITH 1 INCREMENT BY 1;
 
 
-
 -- TABELA VEICULO
 CREATE TABLE veiculo
 (
-    id          NUMBER(8)    NOT NULL,
-    id_usuario  NUMBER(8)    NOT NULL,
-    modelo      VARCHAR(20)  NOT NULL,
-    marca       VARCHAR(15)  NOT NULL,
-    placa       VARCHAR(7)   NOT NULL,
-    cor         VARCHAR(15)  NOT NULL,
-    categoria   VARCHAR(15)  NOT NULL, -- TODO CRIAR NOVAS TABELAS PARA GUARDAR DOC VEICULO DUAS FOTOS HABILITACAO ???
-    documento   VARCHAR(120) NOT NULL, -- TODO PESQUISAR QUAL DOCUMENTO DO CARRO CADASTRAR???
+    id          NUMBER(8)   NOT NULL,
+    id_usuario  NUMBER(8)   NOT NULL,
+    modelo      VARCHAR(20) NOT NULL,
+    marca       VARCHAR(15) NOT NULL,
+    placa       VARCHAR(7)  NOT NULL,
+    ano         NUMBER(4)   NOT NULL,
+    cor         VARCHAR(15) NOT NULL,
+    categoria   VARCHAR(15) NOT NULL, -- TODO CRIAR NOVAS TABELAS PARA GUARDAR DOC VEICULO DUAS FOTOS HABILITACAO ???
+    documento   VARCHAR(120),         -- TODO PESQUISAR QUAL DOCUMENTO DO CARRO CADASTRAR???
     foto        VARCHAR(120),
-    habilitacao VARCHAR(120) NOT NULL,
-    tipo        VARCHAR(15)  NOT NULL
+    habilitacao VARCHAR(120),
+    aprovacao   VARCHAR(10),
+    veiculo     VARCHAR(5)  NOT NULL
 );
 
 -- CHAVE PRIMÁRIA VEICULO
@@ -168,13 +171,31 @@ ALTER TABLE veiculo
 ALTER TABLE veiculo
     ADD CONSTRAINT uq_documento UNIQUE (documento);
 
+-- CHECK MARCA
+
+ALTER TABLE veiculo
+    ADD CONSTRAINT ck_marca_veiculo CHECK (marca IN
+                                           ('CHEVROLET', 'VOLKSWAGEN', 'FIAT', 'HYUNDAI', 'NISSAN', 'RENAULT', 'FORD',
+                                            'TOYOTA', 'JEEP', 'HONDA', 'CITROEN', 'MITSUBISHI', 'PEUGEOT', 'CHERY',
+                                            'BMW', 'MERCEDES', 'KIA', 'AUDI', 'VOLVO', 'LANDROVER', 'AIMA', 'AVELLOZ',
+                                            'BRAVAX', 'BRP', 'BULL', 'DAFRA', 'DAYANG', 'DUCATI', 'HAOJUE',
+                                            'HARLEYDAVIDSON', 'HUSQVARNA', 'INDIAN', 'IROS', 'JONNY', 'KASINSKI',
+                                            'KAWASAKI', 'KTM', 'KYMCO', 'MOTOCAR', 'MVAGUSTA', 'PIAGGIO',
+                                            'ROYALENFIELD', 'SHINERAY', 'SUZUKI', 'SWM', 'TRAXX', 'TRIUMPH', 'VESPA',
+                                            'WUYANG', 'YAMAHA'
+                                               ));
+
 -- CHECK CATEGORIA
 ALTER TABLE veiculo
     ADD CONSTRAINT ck_categoria_veiculo CHECK (categoria IN ('HATCH', 'SEDAN', 'PERUA', 'SUV', 'PICAPE'));
 
+-- CHECK APROVACAO
+ALTER TABLE veiculo
+    ADD CONSTRAINT ck_aprovacao_veiculo CHECK (aprovacao IN ('APROVADO', 'NEGADO', 'AGUARDANDO'));
+
 -- CHECK TIPO
 ALTER TABLE veiculo
-    ADD CONSTRAINT ck_tipo_veiculo CHECK (tipo IN ('CARRO', 'MOTO'));
+    ADD CONSTRAINT ck_veiculo_veiculo CHECK (veiculo IN ('CARRO', 'MOTO'));
 
 -- SEQUENCE VEICULO
 CREATE SEQUENCE veiculo_seq START WITH 1 INCREMENT BY 1;
@@ -189,12 +210,12 @@ CREATE TABLE anuncio
     preco           DECIMAL(6, 2) NOT NULL, -- COLOCAR PRECOS POR HORA, DEMAIS HORAS E ETC...
     vagas           NUMBER(2),
     descricao       VARCHAR(200),
-    categoria       VARCHAR(15), -- IDEIA: Só aceita na garagem esse tipo de categoria de carro (MULTIPLAS CATEGORIA NOVA Tabela)
+    categoria       VARCHAR(15),            -- IDEIA: Só aceita na garagem esse tipo de categoria de carro (MULTIPLAS CATEGORIA NOVA Tabela)
     modalidade      VARCHAR(15)   NOT NULL,
     expiracao       DATE,
-    disponibilidade VARCHAR(15)   NOT NULL, -- TIRAR ISSO DAQUI E COLOCAR EM OUTRA TABELA
+    disponibilidade VARCHAR(15)   NOT NULL, -- TIRAR ISSO DAQUI E COLOCAR EM OUTRA TABELA POR PODER SER MULTIPLO
     dimensoes       VARCHAR(8)    NOT NULL,
-    foto            VARCHAR(120), -- TODO NOVA TABELA P/ FOTOS (MULTIPLICIDADE)
+    foto            VARCHAR(120),           -- TODO NOVA TABELA P/ FOTOS (MULTIPLICIDADE)
     data            DATE          NOT NULL
 );
 
@@ -226,47 +247,80 @@ ALTER TABLE anuncio
 CREATE SEQUENCE anuncio_seq START WITH 1 INCREMENT BY 1;
 
 
-
--- TABELA SERVICO
-CREATE TABLE servico
-( -- TODO ARRUMAR CAMPOS
-    id         NUMBER(8)     NOT NULL,
-    id_veiculo NUMBER(8)     NOT NULL,
-    id_anuncio NUMBER(8)     NOT NULL,
---     id_cartao NUMBER(8) NOT NULL,
-    avaliacao  NUMBER(1),
-    preco      DECIMAL(6, 2) NOT NULL,
-    entrada    DATE          NOT NULL,
-    saida      DATE          NOT NULL,
-    pagamento  VARCHAR(15)   NOT NULL
+-- TABELA AGENDAMENTO
+CREATE TABLE agendamento
+(
+    id         NUMBER(8) NOT NULL,
+    id_veiculo NUMBER(8) NOT NULL,
+    id_anuncio NUMBER(8) NOT NULL,
+    --     id_cartao NUMBER(8) NOT NULL, -- TODO NECESSÁRIO CARTÃO P/ AGENDAR???
+    data       DATE      NOT NULL,
+    status     VARCHAR(10)
 );
 
--- CHAVE PRIMÁRIA SERVICO
-ALTER TABLE servico
-    ADD CONSTRAINT pk_servico PRIMARY KEY (id);
+-- CHAVE PRIMÁRIA AGENDAMENTO
+ALTER TABLE agendamento
+    ADD CONSTRAINT pk_agendamento PRIMARY KEY (id);
 
 -- CHAVE ESTRANGEIRA
-ALTER TABLE servico
-    ADD CONSTRAINT fk_veiculo_servico FOREIGN KEY (id_veiculo) REFERENCES veiculo (id);
+ALTER TABLE agendamento
+    ADD CONSTRAINT fk_veiculo_agendamento FOREIGN KEY (id_veiculo) REFERENCES veiculo (id);
 
 -- UNIQUE ID ANUNCIO
-ALTER TABLE servico
-    ADD CONSTRAINT uq_id_anuncio UNIQUE (id_anuncio);
+ALTER TABLE agendamento
+    ADD CONSTRAINT uq_id_anuncio_agendamento UNIQUE (id_anuncio);
+-- TODO ARRUMAR NOME DA CONSTRAINT
 
 -- CHAVE ESTRANGEIRA
-ALTER TABLE servico
-    ADD CONSTRAINT fk_anuncio_servico FOREIGN KEY (id_anuncio) REFERENCES anuncio (id);
+ALTER TABLE agendamento
+    ADD CONSTRAINT fk_anuncio_agendamento FOREIGN KEY (id_anuncio) REFERENCES anuncio (id);
 
 -- CHAVE ESTRANGEIRA CARTAO ANUNCIO
--- ALTER TABLE servico ADD CONSTRAINT fk_cartao_anuncio FOREIGN KEY (id_cartao) REFERENCES cartao (id);
-
--- CHECK AVALIACAO
-ALTER TABLE servico
-    ADD CONSTRAINT ck_avaliacao CHECK (avaliacao BETWEEN 1 AND 5);
+/*ALTER TABLE agendamento
+    ADD CONSTRAINT fk_cartao_anuncio FOREIGN KEY (id_cartao) REFERENCES cartao (id);*/
 
 -- CHECK PAGAMENTO
-ALTER TABLE servico
-    ADD CONSTRAINT ck_pagamento CHECK (pagamento IN ('CARTAO', 'BOLETO'));
+ALTER TABLE agendamento
+    ADD CONSTRAINT ck_status CHECK (status IN ('AGENDADO', 'CANCELADO'));
 
--- SEQUENCE SERVICO
-CREATE SEQUENCE servico_seq START WITH 1 INCREMENT BY 1;
+-- SEQUENCE AGENDAMENTO
+CREATE SEQUENCE agendamento_seq START WITH 1 INCREMENT BY 1;
+
+
+-- TABELA REGISTRO
+CREATE TABLE registro
+(
+    id             NUMBER(8)     NOT NULL,
+    id_agendamento NUMBER(8)     NOT NULL,
+    avaliacao      NUMBER(1),
+    total          DECIMAL(6, 2) NOT NULL,
+    pagamento      VARCHAR(15)   NOT NULL,
+    entrada        DATE          NOT NULL,
+    saida          DATE          NOT NULL
+);
+
+-- CHAVE PRIMÁRIA AGENDAMENTO
+ALTER TABLE registro
+    ADD CONSTRAINT pk_registro PRIMARY KEY (id);
+
+-- UNIQUE ID ANUNCIO
+ALTER TABLE registro
+    ADD CONSTRAINT uq_id_anuncio_registro UNIQUE (id_agendamento);
+-- TODO ARRUMAR NOME DA CONSTRAINT
+
+-- CHAVE ESTRANGEIRA
+ALTER TABLE registro
+    ADD CONSTRAINT fk_agendamento_registro FOREIGN KEY (id_agendamento) REFERENCES agendamento (id);
+
+-- CHECK AVALIACAO
+ALTER TABLE registro
+    ADD CONSTRAINT ck_avaliacao_registro CHECK (avaliacao BETWEEN 1 AND 5);
+-- TODO ARRUMAR NOME DA CONSTRAINT
+
+-- CHECK PAGAMENTO
+ALTER TABLE registro
+    ADD CONSTRAINT ck_pagamento_registro CHECK (pagamento IN ('CARTAO', 'DINHEIRO'));
+-- TODO ARRUMAR NOME DA CONSTRAINT
+
+-- SEQUENCE REGISTRO
+CREATE SEQUENCE registro_seq START WITH 1 INCREMENT BY 1;

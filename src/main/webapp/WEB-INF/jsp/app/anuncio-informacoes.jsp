@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GoPark - Agendamentos</title>
+    <title>GoPark - Informações do Anúncio</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,13 +49,13 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Agendamentos</h1>
+                <h1 class="h3 mb-4 text-gray-800">Informações do Anúncio</h1>
 
                 <!-- Início Conteúdo -->
 
                 <div class="row">
 
-                    <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="col-xl-6 col-md-6 mb-6">
                         <div class="card border-left-info shadow h-100 py-2">
                             <div class="card-body card-body-margin">
                                 <div class="row no-gutters align-items-center">
@@ -62,18 +63,24 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
                                             <i class="fas fa-map-marker-alt" style="color: red;"></i>
-                                            ESTADO
+                                            CIDADE - ESTADO - CEP
                                         </div>
                                         <div class="h6 mb-0 font-weight-bold font-color">
                                             Endereço:
+                                        </div>
+                                        <div class="h6 mb-0 font-weight-bold font-price">
+                                            Disponibilidade:
+                                        </div>
+                                        <div class="h6 mb-0 font-weight-bold font-color">
+                                            Veículo compativel & Disponibilidade
                                         </div>
                                         <div class="h6 mb-0 font-weight-bold font-price" id="preco">
                                             Preço:
                                         </div>
                                     </div>
                                     <div class="col-md-12">
+                                        <a href="${s:mvcUrl('alugar').build()}" class="btn btn-primary btn-user btn-block btn-padding">Alugar</a>
                                         <input hidden value="${anuncio.id}">
-                                        <a href="#" class="btn btn-danger btn-user btn-block btn-padding">Cancelar</a>
                                     </div>
                                 </div>
                             </div>

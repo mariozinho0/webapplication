@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
@@ -28,7 +28,7 @@
 
 <body class="bg-gray-200">
 
-<div class="container login-padding">
+<div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-body p-0">

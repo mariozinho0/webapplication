@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 
 <%-- TODO CHECAR SE NÃO QUEBROU CSS --%>
@@ -42,9 +42,25 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="${s:mvcUrl('alugar').build()}">
+        <a class="nav-link" href="${s:mvcUrl('meus-anuncios').build()}">
+            <i class="fas fa-fw fa-parking"></i>
+            <span>Meus Anúncios</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Veículos
+    </div>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="${s:mvcUrl('veiculo.listar').build()}">
             <i class="fas fa-fw fa-car-side"></i>
-            <span>Alugar</span>
+            <span>Meus Veículos</span>
         </a>
     </li>
 

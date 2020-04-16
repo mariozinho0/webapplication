@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -59,26 +59,21 @@
                 <div class="row">
 
                     <c:forEach items="${anuncios}" var="anuncio">
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-4 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
+                                <div class="card-body card-body-margin">
                                     <div class="row no-gutters align-items-center">
                                         <img class="img-anuncio" src="img/estac03.jpg">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
                                                 <i class="fas fa-map-marker-alt"
-                                                   style="color: red;"></i> ${anuncio.endereco.cidade}
-                                                - ${anuncio.endereco.estado}</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                                Endereço: ${anuncio.endereco.endereco}</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800" id="preco">Preço: <fmt:formatNumber value="${anuncio.preco}" type="currency"/></div>
+                                                   style="color: red;"></i> ${anuncio.endereco.cidade} - ${anuncio.endereco.bairro} - ${anuncio.endereco.estado}</div>
+                                            <div class="h5 mb-0 font-weight-bold font-color">${anuncio.endereco.endereco}, ${anuncio.endereco.numero}</div>
+                                            <div class="h3 mb-0 font-weight-bold font-price" id="preco"><fmt:formatNumber value="${anuncio.preco}" type="currency"/></div>
                                         </div>
-                                        <div class="col-auto">
-                                            <a href="${s:mvcUrl('anuncio.editform').arg(0, anuncio.id).build()}"
-                                               class="btn btn-sm btn-primary">Editar</a>
+                                        <div class="col-md-12">
+                                            <a href="${s:mvcUrl('anuncio-informacoes').build()}" class="btn btn-primary btn-user btn-block btn-padding">Alugar</a>
                                             <input hidden value="${anuncio.id}">
-                                            <a href="${s:mvcUrl('anuncio.excluir').arg(0, anuncio.id).build()}"
-                                               class="btn btn-sm btn-danger">Excluir</a>
                                         </div>
                                     </div>
                                 </div>

@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GoPark - Home</title>
+    <title>GoPark - Meus Veículos</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,29 +51,37 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Anúncios</h1>
+                <h1 class="h3 mb-4 text-gray-800">Meus Veículos</h1>
 
-                <!-- Pesquisa por Cidade -->
+                <!-- Início Conteúdo -->
 
                 <div class="row">
 
-                    <%-- Colocar um if action = pesquisa do --%>
-                    <c:forEach items="${pesquisa}" var="pesquisa">
+                    <c:forEach items="${veiculos}" var="veiculo">
                         <div class="col-xl-4 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body card-body-margin">
                                     <div class="row no-gutters align-items-center">
-                                        <img class="img-anuncio" src="img/estac03.jpg">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 home-padding">
-                                                <i class="fas fa-map-marker-alt"
-                                                   style="color: red;"></i> ${pesquisa.endereco.cidade} - ${pesquisa.endereco.bairro} - ${pesquisa.endereco.estado}</div>
-                                            <div class="h5 mb-0 font-weight-bold font-color">${pesquisa.endereco.endereco}, ${pesquisa.endereco.numero}</div>
-                                            <div class="h3 mb-0 font-weight-bold font-price" id="preco"><fmt:formatNumber value="${pesquisa.preco}" type="currency"/></div>
+                                        <img class="img-anuncio" src="img/estac02.jpeg">
+                                        <div class="col mr-2 home-padding">
+                                            <div class="h6 mb-0 font-weight-bold font-color">Modelo: <b
+                                                    class="font-price">${veiculo.modelo}</b></div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Marca: <b
+                                                    class="font-price">${veiculo.marca}</b></div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Categoria: <b
+                                                    class="font-price">${veiculo.categoria}</b></div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Ano: <b
+                                                    class="font-price">${veiculo.ano}</b></div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Placa: <b
+                                                    class="font-price">${veiculo.placa}</b></div>
+                                            <div class="h6 mb-0 font-weight-bold font-color">Cor: <b
+                                                    class="font-price">${veiculo.cor}</b></div>
                                         </div>
                                         <div class="col-md-12">
-                                            <a href="${s:mvcUrl('anuncio-informacoes').build()}" class="btn btn-primary btn-user btn-block btn-padding">Alugar</a>
-                                            <input hidden value="${pesquisa.id}">
+                                            <a href="${s:mvcUrl('veiculo.editform').arg(0, veiculo.id).build()}"
+                                               class="btn btn-primary btn-user btn-block btn-padding">Editar</a>
+                                            <a href="${s:mvcUrl('veiculo.excluir').arg(0, veiculo.id).build()}"
+                                               class="btn btn-danger btn-user btn-block btn-padding">Excluir</a>
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +89,21 @@
                         </div>
                     </c:forEach>
 
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body card-body-margin">
+                                <div class="row no-gutters align-items-center">
+                                    <a href="${s:mvcUrl('veiculo.cadastro').build()}"
+                                       class="btn btn-primary btn-user btn-block btn-padding">Adicionar Veículo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+
+                <!-- Fim Conteúdo -->
 
             </div>
             <!-- /.container-fluid -->
@@ -105,7 +126,7 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal -->
+<!-- Logout Modal-->
 <c:import url="../component/logout-modal.jsp"></c:import>
 
 <!-- Bootstrap core JavaScript-->

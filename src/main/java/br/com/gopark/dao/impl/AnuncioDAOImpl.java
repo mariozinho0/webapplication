@@ -27,4 +27,12 @@ public class AnuncioDAOImpl extends GenericDAOImpl<Anuncio, Integer> implements 
 
     }
 
+    @Override
+    public List<Anuncio> getById(Integer id) {
+
+        return em.createQuery("select a from Anuncio a where a.usuario.id = :i")
+                .setParameter("i", id).getResultList();
+
+    }
+
 }

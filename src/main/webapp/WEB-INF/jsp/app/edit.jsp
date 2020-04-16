@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
@@ -189,7 +189,7 @@
                                     </div>
                                     <!--Preço-->
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <form:input type="text" name="preco" class="form-control form-control-user"
+                                        <form:input name="preco" class="form-control form-control-user"
                                                     placeholder="Preço"
                                                     id="preco"
                                                     path="preco"/>
