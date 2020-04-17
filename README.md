@@ -41,5 +41,13 @@ Edições e inserções em **anúncio** devem ter como base o seguinte JSON:
 Edições e inserções em **veículo** devem ter como base o seguinte JSON:
 
 ```json
-//TODO
+{
+    "marca": "CHEVROLET",
+    "veiculo": "CARRO",
+    "categoria": "HATCH",
+    "modelo": "CRUZE",
+    "ano": "2020",
+    "placa": "CRN2020",
+    "cor": "PRETO"
+}
 ```
