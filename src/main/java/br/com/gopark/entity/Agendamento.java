@@ -1,6 +1,7 @@
 package br.com.gopark.entity;
 
 import br.com.gopark.enums.Status;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -49,7 +50,8 @@ public class Agendamento {
     @ManyToOne
     /*Anotação que referencia a coluna da FK*/
     @JoinColumn(name = "id_veiculo")
-    @JsonManagedReference(value = "veiculo") //TODO TEM BOSTA NESSES JSON ANOTATIONS, TA SUMINDO A PROPRIEDADE, CHECAR TODOS
+    //@JsonManagedReference(value = "veiculo") //TODO TEM BOSTA NESSES JSON ANOTATIONS, TA SUMINDO A PROPRIEDADE, CHECAR TODOS
+    @JsonBackReference(value = "veiculo") //TODO ESSE ESTA FUNCIONAL PARA POST NA API
     private Veiculo veiculo;
 
     /*Anotação que especifica o tipo de relacionamento:
