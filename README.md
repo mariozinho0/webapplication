@@ -2,6 +2,31 @@
 
 Versão Spring Boot do Projeto...
 
+##Link de acesso
+
+Para acesso ao aplicativo Web
+<br/>
+<http://ec2-3-133-81-78.us-east-2.compute.amazonaws.com:8080/gopark/>
+<br/>
+
+Para acessar a API REST, altere o link conforme a rota desejada
+<br/>
+
+Exemplos
+<br/>
+
+`http://ec2-3-133-81-78.us-east-2.compute.amazonaws.com:8080/gopark/{rota}`
+<br/>
+
+`http://ec2-3-133-81-78.us-east-2.compute.amazonaws.com:8080/gopark/{rota}/{id}`
+
+
+**Rotas disponivéis:**
+* anuncio-rest
+* veiculo-rest
+   
+
+
 ## Importante
 
 - Estão sendo usadas as anotações do lombok para gerar getters, setters e construtores.
