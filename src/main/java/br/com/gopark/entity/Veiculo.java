@@ -102,7 +102,8 @@ public class Veiculo {
     - 1º termo (antes do "To") representa a cardinalidade da entidade atual
     - 2º termo (depois do "To") representa a cardinalidade para o atributo refenciado abaixo*/
     @OneToMany(mappedBy = "veiculo")
-    @JsonBackReference(value = "veiculo")
+    //@JsonBackReference(value = "veiculo") //RETORNAVA ERRO NA API
+    @JsonManagedReference(value = "veiculo")
     private List<Agendamento> agendamentos;
 
 }
