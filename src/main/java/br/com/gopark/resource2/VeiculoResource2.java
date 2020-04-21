@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("veiculo-rest")
-public class VeiculoResource {
+public class VeiculoResource2 {
 
     @Autowired
     private VeiculoDAO veiculoDAO;

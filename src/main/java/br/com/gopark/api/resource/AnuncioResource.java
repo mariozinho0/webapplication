@@ -64,7 +64,7 @@ public class AnuncioResource {
 
         }catch (Exception e){
 
-            return new ResponseEntity<>("Erro ao atulizar anuncio" + e, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Erro ao atulizar anuncio" + e, HttpStatus.NOT_MODIFIED);
 
         }
     }
