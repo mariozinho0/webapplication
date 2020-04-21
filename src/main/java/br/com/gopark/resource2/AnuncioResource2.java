@@ -1,4 +1,4 @@
-package br.com.gopark.resource;
+package br.com.gopark.resource2;
 
 import br.com.gopark.dao.AnuncioDAO;
 import br.com.gopark.dao.UsuarioDAO;
@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("anuncio-rest")
-public class AnuncioResource { //TODO ARRUMAR OS CÓDIGOS RETORNADOS ||| CRIAR DTO
+public class AnuncioResource2 { //TODO ARRUMAR OS CÓDIGOS RETORNADOS ||| CRIAR DTO
 
     @Autowired
     private AnuncioDAO anuncioDAO;

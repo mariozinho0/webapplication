@@ -1,8 +1,7 @@
-package br.com.gopark.resource;
+package br.com.gopark.resource2;
 
 import br.com.gopark.dao.UsuarioDAO;
 import br.com.gopark.dao.VeiculoDAO;
-import br.com.gopark.entity.Anuncio;
 import br.com.gopark.entity.Usuario;
 import br.com.gopark.entity.Veiculo;
 import lombok.extern.slf4j.Slf4j;
