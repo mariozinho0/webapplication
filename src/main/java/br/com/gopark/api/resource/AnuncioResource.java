@@ -104,7 +104,7 @@ public class AnuncioResource {
         try {
             Anuncio anuncio = anuncioRepository.findById(id).get();
             anuncioRepository.deleteById(id);
-            return new ResponseEntity<>(anuncio, HttpStatus.OK);
+            return new ResponseEntity<>("Deletado anuncio ID: " + id, HttpStatus.OK );
 
         } catch (Exception e){
             return new ResponseEntity<>("Erro: " + e,HttpStatus.INTERNAL_SERVER_ERROR);
