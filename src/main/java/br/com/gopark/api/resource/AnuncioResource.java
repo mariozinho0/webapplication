@@ -37,7 +37,7 @@ public class AnuncioResource {
     //@ResponseStatus(HttpStatus.CREATED)
     @Transactional
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody Anuncio anuncio, HttpServletResponse response){
+    public ResponseEntity<?> cadastrar(@RequestBody Anuncio anuncio){
 
         Usuario usuario = usuarioDAO.select(1);
 
