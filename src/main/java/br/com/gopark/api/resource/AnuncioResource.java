@@ -1,134 +1,123 @@
 package br.com.gopark.api.resource;
 
 import br.com.gopark.api.repository.AnuncioRepository;
-import br.com.gopark.dao.AnuncioDAO;
-import br.com.gopark.dao.UsuarioDAO;
+import br.com.gopark.api.repository.UsuarioRepository;
 import br.com.gopark.entity.Anuncio;
 import br.com.gopark.entity.Usuario;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.servlet.http.HttpServletResponse;
+import java.net.URI;
 import java.util.List;
-
 
 @Slf4j
 @RestController
 @RequestMapping("api/anuncio")
-public class AnuncioResource {
+public class AnuncioResource { //TODO CHECAR REDUNDANCIAS
 
     @Autowired
     private AnuncioRepository anuncioRepository;
 
     @Autowired
-    private AnuncioDAO anuncioDAO;
-
-    @Autowired
-    private UsuarioDAO usuarioDAO;
+    private UsuarioRepository usuarioRepository;
 
 
-    //TODO VERIFICAR TESTE CASO CAMPO NAO SEJA PREENCHIDO
-    //@ResponseStatus(HttpStatus.CREATED)
     @Transactional
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody Anuncio anuncio){
+    public ResponseEntity<Anuncio> cadastrar(@RequestBody Anuncio anuncio, UriComponentsBuilder uriBuilder) {
 
-        Usuario usuario = usuarioDAO.select(1);
+        Usuario usuario = usuarioRepository.findById(1).get();
 
-        try {
+        anuncio.setUsuario(usuario);
+        anuncioRepository.save(anuncio);
 
-            anuncio.setUsuario(usuario);
-            anuncioRepository.save(anuncio);
-            return new ResponseEntity<>(anuncio,HttpStatus.CREATED);
+        URI uri = uriBuilder.build("api/anuncio");
+        return ResponseEntity.created(uri).body(anuncio);
 
-        }catch (Exception e){
-            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
-        }
     }
 
-    @PutMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> atualizar(@RequestBody Anuncio anuncio, @PathVariable Integer id){
 
-        verificaAnuncioExiste(id);
+    @Transactional
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Anuncio> atualizar(@RequestBody Anuncio anuncio, @PathVariable Integer id) {
 
-        try {
-            anuncio.setId(id);
-            anuncioRepository.save(anuncio);
-            return new ResponseEntity<>(anuncio,HttpStatus.OK);
+        if (!anuncioIdExiste(id)) {
 
-        }catch (Exception e){
-
-            return new ResponseEntity<>("Erro ao atulizar anuncio" + e, HttpStatus.NOT_MODIFIED);
+            return ResponseEntity.notFound().build();
 
         }
+
+        anuncio.setId(id);
+        anuncioRepository.save(anuncio);
+        return ResponseEntity.ok(anuncio);
+
     }
 
 
     @GetMapping
-    public ResponseEntity<?> listar() {
+    public List<Anuncio> listar() {
 
-        try {
-
-            List<Anuncio> anuncios = anuncioRepository.findAll();
-            return new ResponseEntity<>(anuncios, HttpStatus.OK);
-
-        }catch (Exception e) {
-
-            return new ResponseEntity<>("Error: " + e, HttpStatus.NOT_FOUND);
-
-        }
+        return anuncioRepository.findAll();
 
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<?> buscar(@PathVariable Integer id){
-        verificaAnuncioExiste(id);
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Anuncio> buscar(@PathVariable Integer id) {
+
+        if (!anuncioIdExiste(id)) {
+
+            return ResponseEntity.notFound().build();
+
+        }
 
         Anuncio anuncio = anuncioRepository.findById(id).get();
+        return ResponseEntity.ok(anuncio);
 
-        return new ResponseEntity<>(anuncio, HttpStatus.OK);
     }
 
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> remover(@PathVariable Integer id){
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity remover(@PathVariable Integer id) {
 
-        verificaAnuncioExiste(id);
+        if (!anuncioIdExiste(id)) {
 
-        try {
-            Anuncio anuncio = anuncioRepository.findById(id).get();
-            anuncioRepository.deleteById(id);
-            return new ResponseEntity<>("Deletado anuncio ID: " + id, HttpStatus.OK );
+            return ResponseEntity.notFound().build();
 
-        } catch (Exception e){
-            return new ResponseEntity<>("Erro: " + e,HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        Anuncio anuncio = anuncioRepository.findById(id).get();
+        anuncioRepository.deleteById(id);
+        return ResponseEntity.ok(anuncio);
+
     }
+
 
     @GetMapping("/cidade/{cidade}")
-    public ResponseEntity<?> buscar(@PathVariable String cidade){
+    public ResponseEntity buscarPorCidade(@PathVariable String cidade) {
 
-        try {
+        if (!anuncioRepository.existsAnuncioByEnderecoCidadeContainingIgnoreCase(cidade)) {
 
-            List<Anuncio> anuncios = anuncioDAO.getByCidade(cidade);
-            return new ResponseEntity<>(anuncios, HttpStatus.OK);
+            return ResponseEntity.notFound().build();
 
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error: " + e, HttpStatus.NOT_FOUND );
         }
+
+        List<Anuncio> anuncios = anuncioRepository.findByEnderecoCidadeContainingIgnoreCase(cidade);
+        return ResponseEntity.ok(anuncios);
 
     }
 
-    //metodo para teste de busca por ID
-    private void verificaAnuncioExiste(Integer id){
-        if (!anuncioRepository.existsById(id)){
-            throw new ResourceNotFoundException("Anuncio não localizado para o ID " + id);
-        }
+
+    private boolean anuncioIdExiste(Integer id) {
+
+        return anuncioRepository.existsById(id);
+
     }
+
 }

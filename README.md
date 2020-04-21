@@ -2,7 +2,13 @@
 
 Versão Spring Boot do Projeto...
 
-## Utilizando a API
+## Importante
+
+- Estão sendo usadas as anotações do lombok para gerar getters, setters e construtores.
+- A versão do projeto continua com a estrutura do Spring MVC pras páginas e organização.
+
+
+## Endpoints
 
 **Veículos**
 
@@ -35,11 +41,6 @@ Listar por id, atualizar e deletar:
 Buscar anúncio por cidade:
 <br/>
 `/api/anuncio/cidade/{cidade}`
-
-## Importante
-
-- Estão sendo usadas as anotações do lombok para gerar getters, setters e construtores.
-- A versão do projeto continua com a estrutura do Spring MVC pras páginas e organização.
 
 ## JSON
 

@@ -1,102 +1,107 @@
 package br.com.gopark.api.resource;
 
+import br.com.gopark.api.repository.UsuarioRepository;
 import br.com.gopark.api.repository.VeiculoRepository;
-import br.com.gopark.dao.UsuarioDAO;
-import br.com.gopark.dao.VeiculoDAO;
 import br.com.gopark.entity.Usuario;
 import br.com.gopark.entity.Veiculo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("api/veiculo")
-public class VeiculoResource {
+public class VeiculoResource { //TODO CHECAR REDUNDANCIAS
+
     @Autowired
     private VeiculoRepository veiculoRepository;
 
     @Autowired
-    private VeiculoDAO veiculoDAO;
+    private UsuarioRepository usuarioRepository;
 
-    @Autowired
-    private UsuarioDAO usuarioDAO;
 
     @Transactional
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody Veiculo veiculo ){
+    public ResponseEntity<Veiculo> cadastrar(@RequestBody Veiculo veiculo, UriComponentsBuilder uriBuilder) {
 
-        Usuario usuario = usuarioDAO.select(1);
+        Usuario usuario = usuarioRepository.findById(1).get();
 
-        try {
+        veiculo.setUsuario(usuario);
+        veiculoRepository.save(veiculo);
 
-            veiculo.setUsuario(usuario);
-            veiculoRepository.save(veiculo);
-            return new ResponseEntity<>(veiculo, HttpStatus.CREATED);
+        URI uri = uriBuilder.build("api/anuncio");
+        return ResponseEntity.created(uri).body(veiculo);
 
-        }catch (Exception e) {
-            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
-        }
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<?> atualizar(@RequestBody Veiculo veiculo, @PathVariable Integer id){
 
-        verificaVeiculoExiste(id);
+    @Transactional
+    @PutMapping("/{id}")
+    public ResponseEntity<Veiculo> atualizar(@RequestBody Veiculo veiculo, @PathVariable Integer id) {
 
-        try {
-            veiculo.setId(id);
-            veiculoRepository.save(veiculo);
-            return new ResponseEntity<>(veiculo, HttpStatus.OK);
-        } catch (Exception e){
-            return new ResponseEntity<>("Erro ao atulizar veiculo" + e,HttpStatus.NOT_MODIFIED);
+        if (!veiculoIdExiste(id)) {
+
+            return ResponseEntity.notFound().build();
+
         }
+
+        veiculo.setId(id);
+        veiculoRepository.save(veiculo);
+        return ResponseEntity.ok(veiculo);
+
     }
+
 
     @GetMapping
-    public ResponseEntity<?> listar(){
-        try {
-            List<Veiculo> veiculos = veiculoRepository.findAll();
-            return new ResponseEntity<>(veiculos, HttpStatus.OK);
-        } catch (Exception e){
-            return new ResponseEntity<>("Error " + e, HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity listar() {
+
+        List<Veiculo> veiculos = veiculoRepository.findAll();
+        return ResponseEntity.ok(veiculos);
+
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<?> buscarId(@PathVariable Integer id){
 
-        verificaVeiculoExiste(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<Veiculo> buscarId(@PathVariable Integer id) {
+
+        if (!veiculoIdExiste(id)) {
+
+            return ResponseEntity.notFound().build();
+
+        }
 
         Veiculo veiculo = veiculoRepository.findById(id).get();
-        return new ResponseEntity<>(veiculo, HttpStatus.OK);
+        return ResponseEntity.ok(veiculo);
+
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> remover(@PathVariable Integer id){
 
-        verificaVeiculoExiste(id);
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity remover(@PathVariable Integer id) {
 
-        try {
+        if (!veiculoIdExiste(id)) {
 
-            veiculoRepository.deleteById(id);
-            return new ResponseEntity<>("Deletado veiculo ID: " + id, HttpStatus.OK );
+            return ResponseEntity.notFound().build();
 
-        }catch (ResponseStatusException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
+        veiculoRepository.deleteById(id);
+        return ResponseEntity.ok().build();
+
     }
 
-    private void verificaVeiculoExiste(Integer id){
-        if (!veiculoRepository.existsById(id)){
-            throw new ResourceNotFoundException("Veiculo não localizado para o ID" + id);
-        }
+
+    private boolean veiculoIdExiste(Integer id) {
+
+        return veiculoRepository.existsById(id);
+
     }
+
 }
