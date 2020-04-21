@@ -8,6 +8,7 @@ server/wildfly-16.0.0.Final/standalone/tmp/
 /server/wildfly-16.0.0.Final/standalone/configuration/logging.properties
 .project
 .classpath
+.settings
 org.eclipse.jdt.apt.core.prefs
 org.eclipse.jdt.core.prefs
 org.eclipse.m2e.core.prefs
