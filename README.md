@@ -2,30 +2,39 @@
 
 Versão Spring Boot do Projeto...
 
-##Link de acesso
+## Utilizando a API
 
-Para acesso ao aplicativo Web
+**Veículos**
+
+Listar veículos:
 <br/>
-<http://ec2-3-133-81-78.us-east-2.compute.amazonaws.com:8080/gopark/>
+`/api/veiculo/`
+
+Cadastrar veículos, passar dados via BODY no formato JSON:
 <br/>
+`/api/veiculo/`
 
-Para acessar a API REST, altere o link conforme a rota desejada
+Listar por id, atualizar e deletar:
 <br/>
+`/api/veiculo/{id}`
 
-Exemplos
+**Anúncios**
+
+Listar anuncios:
 <br/>
+`/api/anuncio/`
 
-`http://ec2-3-133-81-78.us-east-2.compute.amazonaws.com:8080/gopark/{rota}`
+Cadastrar anúncio, passar dados via BODY no formato JSON:
 <br/>
+`/api/anuncio/`
 
-`http://ec2-3-133-81-78.us-east-2.compute.amazonaws.com:8080/gopark/{rota}/{id}`
+Listar por id, atualizar e deletar:
+<br/>
+`/api/anuncio/{id}`
 
-
-**Rotas disponivéis:**
-* anuncio-rest
-* veiculo-rest
-   
-
+Buscar anúncio por cidade:
+<br/>
+`/api/anuncio/cidade/{cidade}`
 
 ## Importante
 
