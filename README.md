@@ -7,44 +7,33 @@ Versão Spring Boot do Projeto...
 - Estão sendo usadas as anotações do lombok para gerar getters, setters e construtores.
 - A versão do projeto continua com a estrutura do Spring MVC pras páginas e organização.
 
+## Utilização API
 
-## Endpoints
+### Veículos
 
-**Veículos**
+- Listar todos veículos cadastrados `/api/veiculo` (GET).
 
-Listar veículos:
-<br/>
-`/api/veiculo/`
+- Cadastrar veículos `/api/veiculo` (POST) e editar `/api/veiculo/id` (PUT), usar como base o JSON abaixo:
 
-Cadastrar veículos, passar dados via BODY no formato JSON:
-<br/>
-`/api/veiculo/`
+```json
+{
+    "marca": "CHEVROLET",
+    "veiculo": "CARRO",
+    "categoria": "HATCH",
+    "modelo": "CRUZE",
+    "ano": "2020",
+    "placa": "CRN2020",
+    "cor": "PRETO"
+}
+```
 
-Listar por id, atualizar e deletar:
-<br/>
-`/api/veiculo/{id}`
+Listar veículo por id `/api/veiculo/{id}` (GET) e deletar por id `/api/veiculo/{id}` (DELETE).
 
-**Anúncios**
+### Anúncios
 
-Listar anuncios:
-<br/>
-`/api/anuncio/`
+- Listar todos anúncios cadastrados `/api/anuncio` (GET).
 
-Cadastrar anúncio, passar dados via BODY no formato JSON:
-<br/>
-`/api/anuncio/`
-
-Listar por id, atualizar e deletar:
-<br/>
-`/api/anuncio/{id}`
-
-Buscar anúncio por cidade:
-<br/>
-`/api/anuncio/cidade/{cidade}`
-
-## JSON
-
-Edições e inserções em **anúncio** devem ter como base o seguinte JSON:
+- Cadastrar anúncios `/api/anuncio` (POST) e editar `/api/anuncio/id` (PUT), usar como base o JSON abaixo:
 
 ```json
 {
@@ -73,16 +62,6 @@ Edições e inserções em **anúncio** devem ter como base o seguinte JSON:
 }
 ```
 
-Edições e inserções em **veículo** devem ter como base o seguinte JSON:
+- Listar anúncio por id `/api/anuncio/id` (GET) e deletar por id `/api/anuncio/id` (DELETE).
 
-```json
-{
-    "marca": "CHEVROLET",
-    "veiculo": "CARRO",
-    "categoria": "HATCH",
-    "modelo": "CRUZE",
-    "ano": "2020",
-    "placa": "CRN2020",
-    "cor": "PRETO"
-}
-```
+- Buscar anúncios por cidade `/api/anuncio/cidade/nomedacidade` (GET).
