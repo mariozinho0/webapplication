@@ -6,6 +6,8 @@ Versão Spring Boot do Projeto...
 
 - Estão sendo usadas as anotações do lombok para gerar getters, setters e construtores.
 - A versão do projeto continua com a estrutura do Spring MVC pras páginas e organização.
+- Para criação e inserção das tabelas os scripts do banco estão dísponíveis em `oracle/scripts`.
+- Ainda não há o registro de sessão que possibilita trabalhar com diferentes usuários, então, para que qualquer ação na aplicação funcione um usuário válido de id 1 deve existir, portanto, é FUNDAMENTAL gerar o banco através dos scripts encontrados em `oracle/scripts`.
 
 ## Utilização API
 
